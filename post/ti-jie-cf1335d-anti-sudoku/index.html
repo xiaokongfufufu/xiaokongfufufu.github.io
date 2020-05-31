@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://xiaokongfufufu.github.io/favicon.ico?v=1590918796345">
+<link rel="shortcut icon" href="https://xiaokongfufufu.github.io/favicon.ico?v=1590919068634">
 <link rel="stylesheet" href="https://xiaokongfufufu.github.io/styles/main.css">
 
 
@@ -24,9 +24,11 @@
 
 
 
-    <meta name="description" content="div 3的题真是难（shuˇish \check{u} ishuˇi）啊！
-这题只需要构造出改变9个格子，使得每个行、列、宫都改变了一次（最多才9个格子，不可能有一个行、列、宫改两个数）。至于改变成什么数，随便改个不是它自己的数就行。
-比..." />
+    <meta name="description" content="这题只需要构造出改变9个格子，使得每个行、列、宫都改变了一次（最多才9个格子，不可能有一个行、列、宫改两个数）。至于改变成什么数，随便改个不是它自己的数就行。
+比如说可以选择下面几个格子：
+
+然后就上代码吧：
+#include&lt;std..." />
     <meta name="keywords" content="构造" />
   </head>
   <body>
@@ -36,7 +38,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://xiaokongfufufu.github.io">
-        <img src="https://xiaokongfufufu.github.io/images/avatar.png?v=1590918796345" class="site-logo">
+        <img src="https://xiaokongfufufu.github.io/images/avatar.png?v=1590919068634" class="site-logo">
         <h1 class="site-title">小恐的博客</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -111,8 +113,7 @@
             <div class="post-date">2020-05-30</div>
             
             <div class="post-content" v-pre>
-              <p><s>div 3的题真是难（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>h</mi><mover accent="true"><mi>u</mi><mo>ˇ</mo></mover><mi>i</mi></mrow><annotation encoding="application/x-tex">sh \check{u} i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.62847em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">u</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">ˇ</span></span></span></span></span></span><span class="mord mathdefault">i</span></span></span></span>）啊！</s></p>
-<p>这题只需要构造出改变9个格子，使得每个行、列、宫都改变了一次（最多才9个格子，不可能有一个行、列、宫改两个数）。至于改变成什么数，随便改个不是它自己的数就行。</p>
+              <p>这题只需要构造出改变9个格子，使得每个行、列、宫都改变了一次（最多才9个格子，不可能有一个行、列、宫改两个数）。至于改变成什么数，随便改个不是它自己的数就行。</p>
 <p>比如说可以选择下面几个格子：<br>
 <img src="https://cdn.luogu.com.cn/upload/image_hosting/gq5esas6.png" alt="" loading="lazy"><br>
 然后就上代码吧：</p>
