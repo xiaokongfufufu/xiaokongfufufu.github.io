@@ -4,11 +4,14 @@
     <meta charset="utf-8" >
 
 <title>关于本站 | 小恐的博客</title>
+<meta name="description" content="欢迎大佬来吊打窝！！！">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://xiaokongfufufu.github.io/favicon.ico?v=1590925372413">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://xiaokongfufufu.github.io/favicon.ico?v=1590919068634">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://xiaokongfufufu.github.io/styles/main.css">
 
 
@@ -18,72 +21,117 @@
 
   
 
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
-
-    <meta name="description" content="这是哪
-这里是小恐的个人博客呢。
-个人介绍
-吾乃初一BJ蒟蒻OIer兼MOer。
-洛谷账号：小恐
-蒟蒻的CF号：
-这里有啥
-主要放题解、算法讲解、游记……
-..." />
-    <meta name="keywords" content="" />
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://xiaokongfufufu.github.io">
-        <img src="https://xiaokongfufufu.github.io/images/avatar.png?v=1590919068634" class="site-logo">
-        <h1 class="site-title">小恐的博客</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://xiaokongfufufu.github.io">小恐的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
         
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
         
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
+          <li>
+            
+              <a href="/post/liu-yan" class="menu">
+                留言
+              </a>
+            
+          </li>
         
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-        
-          <a href="/post/liu-yan" class="site-nav">
-            留言
-          </a>
-        
-      
+      </ul>
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>关于本站</h1>
+            <p class="article-meta">
+              2019-01-25
+              
+            </p>
+            
+            <div class="post-content">
+              <h2 id="这是哪">这是哪</h2>
+<p>这里是小恐的个人博客呢。</p>
+<h2 id="个人介绍">个人介绍</h2>
+<p>吾乃初一BJ蒟蒻OIer兼MOer。<br>
+洛谷账号：<a href="https://www.luogu.com.cn/user/173840">小恐</a><br>
+蒟蒻的CF号：<a href="https://codeforces.com/profile/jiuruifu"><img src="https://cfrating.ihcr.top/?user=jiuruifu" alt="" loading="lazy"></a></p>
+<h2 id="这里有啥">这里有啥</h2>
+<p>主要放题解、算法讲解、游记……</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://xiaokongfufufu.github.io/images/avatar.png?v=1590925372413" class="no-responsive avatar">
+    <div class="text-muted">欢迎大佬来吊打窝！！！</div>
     <div class="social-container">
       
         
@@ -97,73 +145,133 @@
         
       
     </div>
-    <div class="site-description">
-      欢迎大佬来吊打窝！！！
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
     </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/gong-gao-guan-yu-ping-lun-gong-neng/">【公告】关于评论功能</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf1335d-anti-sudoku/">题解 CF1335D 【Anti-Sudoku】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf1343c-alternating-subsequence/">题解 CF1343C 【Alternating Subsequence】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/">题解 CF1352B 【Same Parity Summands】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/">题解 P6264 【[COCI2014/2015#3]DOM】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/">题解 CF483B 【Friends and Presents】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/liu-yan/">留言</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/">题解 洛谷P5656 【【模板】二元一次不定方程(exgcd)】</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/">第三场NOI Online能力测试入门组游记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/">第二场NOI Online能力测试入门组自闭记</a>
+            </li>
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://xiaokongfufufu.github.io/tag/olWrcehUZ/" class="badge secondary">
+          构造
+        </a>
+      
+        <a href="https://xiaokongfufufu.github.io/tag/Oz7lClRHYj/" class="badge success">
+          模拟
+        </a>
+      
+        <a href="https://xiaokongfufufu.github.io/tag/HdDV0czafR/" class="badge success">
+          数学
+        </a>
+      
+        <a href="https://xiaokongfufufu.github.io/tag/4d4ceKlSNL/" class="badge ">
+          数论
+        </a>
+      
+        <a href="https://xiaokongfufufu.github.io/tag/ZYEGqpScdd/" class="badge secondary">
+          二分答案
+        </a>
+      
+        <a href="https://xiaokongfufufu.github.io/tag/6uJ9fG_lOB/" class="badge warning">
+          游记
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script> | <a class="rss" href="https://xiaokongfufufu.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
   </div>
 </div>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">关于本站</h2>
-            <div class="post-date">2019-01-25</div>
-            
-            <div class="post-content" v-pre>
-              <h2 id="这是哪">这是哪</h2>
-<p>这里是小恐的个人博客呢。</p>
-<h2 id="个人介绍">个人介绍</h2>
-<p>吾乃初一BJ蒟蒻OIer兼MOer。<br>
-洛谷账号：<a href="https://www.luogu.com.cn/user/173840">小恐</a><br>
-蒟蒻的CF号：<a href="https://codeforces.com/profile/jiuruifu"><img src="https://cfrating.ihcr.top/?user=jiuruifu" alt="" loading="lazy"></a></p>
-<h2 id="这里有啥">这里有啥</h2>
-<p>主要放题解、算法讲解、游记……</p>
-
-            </div>
-            
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
-        </div>
-      </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script type="application/javascript">
 
 AOS.init();
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+hljs.initHighlightingOnLoad()
 
 </script>
-
-
-  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad()
-  </script>
-
 
 
 
