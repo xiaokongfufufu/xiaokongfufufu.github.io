@@ -1,0 +1,181 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>第三场NOI Online能力测试入门组游记 | Gridea</title>
+<link rel="shortcut icon" href="https://xiaokongfufufu.github.io/favicon.ico?v=1590889872840">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://xiaokongfufufu.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="第三场NOI Online能力测试入门组游记 | Gridea - Atom Feed" href="https://xiaokongfufufu.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="这次入门组怎么那么水啊……，CCF也有放水的时候？？？
+看到第一题，这不就是个sb的字符串题吗？预感到这次不会很难。我这个sb把文件输入输出写到快读函数里了，还好我又查了一遍（貌似那样写也没事）。赛后看到很多人被size()卡了，用strl..." />
+    <meta name="keywords" content="游记" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xiaokongfufufu.github.io">
+  <img class="avatar" src="https://xiaokongfufufu.github.io/images/avatar.png?v=1590889872840" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="post/liu-yan" class="menu">
+          留言
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              第三场NOI Online能力测试入门组游记
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-05-28
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://xiaokongfufufu.github.io/tag/6uJ9fG_lOB/" class="post-tag">
+                  # 游记
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>这次入门组怎么那么水啊……，CCF也有放水的时候？？？</p>
+<p>看到第一题，这不就是个sb的字符串题吗？预感到这次不会很难。我这个sb把文件输入输出写到快读函数里了，还好我又查了一遍（貌似那样写也没事）。赛后看到很多人被<code>size()</code>卡了，用<code>strlen()</code>的我<s>窃喜</s>。</p>
+<p>再看第二题，整个记忆化的dfs就得了。不知道为什么好多人写错。</p>
+<p>看第三题，变形多重背包？于是用单调队列优化干掉了。这次CCF的题解是二进制优化？艹，这复杂度……过不去吧……。没想到最后ccf还是放水了qaq。</p>
+<p>考完以后感觉T3可能超时啊……后来发现如果预算取所有询问的最大值那时间就没那么吓人了。</p>
+<p>我这个sb就这样AK了？好不可思议啊……</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/">
+              <h3 class="post-title">
+                第二场NOI Online能力测试入门组自闭记
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://xiaokongfufufu.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
