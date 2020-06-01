@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-01T12:33:38.047Z</updated>
+    <updated>2020-06-01T13:35:30.099Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -20,7 +20,7 @@
 <p><a href="https://codeforces.com/contest/1335/problem/D">题目传送门2</a></p>
 <p>这题只需要构造出改变9个格子，使得每个行、列、宫都改变了一次（最多才9个格子，不可能有一个行、列、宫改两个数）。至于改变成什么数，随便改个不是它自己的数就行。</p>
 <p>比如说可以选择下面几个格子：<br>
-<img src="https://xiaokongfufufu.github.io/post-images/1591005456842.png" alt="" loading="lazy"><br>
+<img src="https://cdn.luogu.com.cn/upload/image_hosting/gq5esas6.png" alt="" loading="lazy"><br>
 然后就上代码吧：</p>
 <pre><code class="language-cpp">#include&lt;stdio.h&gt;
 using namespace std;
