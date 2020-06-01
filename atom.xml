@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-01T11:17:28.999Z</updated>
+    <updated>2020-06-01T11:18:43.884Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -10,16 +10,6 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐的博客</rights>
-    <entry>
-        <title type="html"><![CDATA[【公告】关于评论功能]]></title>
-        <id>https://xiaokongfufufu.github.io/post/gong-gao-guan-yu-ping-lun-gong-neng/</id>
-        <link href="https://xiaokongfufufu.github.io/post/gong-gao-guan-yu-ping-lun-gong-neng/">
-        </link>
-        <updated>2020-05-31T06:58:10.000Z</updated>
-        <content type="html"><![CDATA[<p>这不是bug！这是feature（雾</p>
-<p>github如果登录后没有成功，那就多试几次，至多10次后大概就登上去了。球球泥萌给点评论吧，否则我都不知道谁看了qwq。</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF1335D 【Anti-Sudoku】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-cf1335d-anti-sudoku/</id>
