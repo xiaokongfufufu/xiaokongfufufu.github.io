@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="欢迎大佬来吊打窝！！！">
 <meta name="theme-color" content="#000">
-<title>题解 CF1343C 【Alternating Subsequence】 | 小恐的博客</title>
+<title>题解 P3115 【[USACO15JAN]Cow Routing S】 | 小恐的博客</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1592051425327">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="题解 CF1343C 【Alternating Subsequence】" />
-  <meta name="keywords" content="模拟" />
+  <meta name="description" content="题解 P3115 【[USACO15JAN]Cow Routing S】" />
+  <meta name="keywords" content="图论,最短路" />
 </head>
 
 <body>
@@ -273,8 +273,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-cf1343c-alternating-subsequence/">
-      题解 CF1343C 【Alternating Subsequence】
+    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/">
+      题解 P3115 【[USACO15JAN]Cow Routing S】
     </a>
   </h1>
   <div class="post-meta">
@@ -282,7 +282,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-29</span>
+      <span>2020-06-13</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -291,8 +291,14 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://xiaokongfufufu.github.io/tag/Oz7lClRHYj/">
-        <span>模拟</span>
+      <a href="https://xiaokongfufufu.github.io/tag/yaYXZ6zGt/">
+        <span>图论</span>
+      </a>、
+      
+      
+      
+      <a href="https://xiaokongfufufu.github.io/tag/pN4kkKmaUe/">
+        <span>最短路</span>
       </a>
       
       
@@ -301,57 +307,117 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>4<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>289<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>583<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.luogu.com.cn/problem/CF1343C">题目传送门1</a></p>
-<p><a href="https://codeforces.com/contest/1343/problem/C">题目传送门2</a></p>
-<p>思路灰常简单：</p>
-<p>因为首先要保证这个子序列最长，所以从前往后扫这个队列，把它分成若干段，每段符号都一样。<s>显然</s>，从每一段中选最大的加起来就是答案。</p>
+              <p><a href="https://www.luogu.com.cn/problem/P3115">题目传送门</a></p>
+<p>这道题是一个最短路问题。</p>
+<p>注意是要求的是最短距离还有经过的城市数，不包括起点。</p>
+<p>这里需要把每个飞机的路线转化为边，注意到这里可能有重边，但如果不处理重边的话，就有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>7</mn></msup></mrow><annotation encoding="application/x-tex">10^7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span></span></span></span>条边，边数明显太大了。但如果处理重边的话就会少很多。既然要处理重边，我们干脆就拿邻接矩阵存，然后跑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>的dij（是不是有直接学堆优化的，朴素没学的？<a href="https://blog.csdn.net/Mr_Kingk/article/details/100175811">看这</a>）。</p>
+<p>由于要考虑城市数，所以每次找最小的时候如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">dis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span>一样就要比一下城市数，哪个少就取哪个。注意每次更新也要更新城市数。</p>
+<p>最后要注意2点：</p>
+<ol>
+<li>十年OI一场空，不开ll见祖宗！</li>
+<li>注意不能到达输出-1</li>
+</ol>
 <p>上代码：</p>
 <pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;iostream&gt;//max函数要用
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
 using namespace std;
-int t,n,a,now;
-long long ans;
-bool flag;
+const int NR=1e3+5;
+const int MR=1e5+5;
+const int INF=0x3f3f3f3f;
+typedef long long LL;
+inline int read()
+{
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-')
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
+	{
+		x=x*10+ch-'0';
+		ch=getchar();
+	}
+	return x*=bei;
+}
+LL g[NR][NR];
+int cnt[NR][NR];
+int a[105];
+LL dis[NR];
+int city[NR];
+bool book[NR];
+int n=1000;
+void dij(int s)
+{
+	memset(dis,0x3f3f,sizeof(dis));
+	memset(city,0x3f,sizeof(city));
+	dis[s]=0;
+	city[s]=0;
+	for(int i=1;i&lt;=n;++i)
+	{
+		LL minn=0x3f3f3f3f3f3f3f3f;
+		int ci=INF;
+		int mini;
+		for(int j=1;j&lt;=n;++j)
+		{
+			if(book[j])
+				continue;
+			if(dis[j]&lt;minn)
+				minn=dis[j],ci=city[j],mini=j;
+			else if(dis[j]==minn&amp;&amp;ci&gt;city[j])
+				ci=city[j],mini=j;
+		}
+		book[mini]=1;
+		for(int j=1;j&lt;=n;++j)
+		{
+			if(dis[j]&gt;minn+g[mini][j])
+				dis[j]=minn+g[mini][j],city[j]=ci+cnt[mini][j];
+			else if(dis[j]==minn+g[mini][j]&amp;&amp;city[j]&gt;ci+cnt[mini][j])
+				city[j]=ci+cnt[mini][j];
+		}
+	}
+}
 int main()
 {
-	scanf(&quot;%d&quot;,&amp;t);
-	while(t--)
+	int s=read(),t=read(),N=read();
+	memset(g,0x3f3f,sizeof(g));
+	for(int i=1;i&lt;=N;++i)
 	{
-		scanf(&quot;%d&quot;,&amp;n);
-		scanf(&quot;%d&quot;,&amp;a);//先读进来一个数
-		flag=a&gt;0;//flag表示上一个数是否为正数
-		now=a;//目前这一段只有一个a，所以最大值设成a
-		ans=0;//答案，设成初值0
-		for(int i=2;i&lt;=n;++i)
-		{
-			scanf(&quot;%d&quot;,&amp;a);
-			if(a&gt;0==flag)//如果和上一个数正负相同
-				now=max(now,a);//取最大的
-			else//不相同
+		int co=read(),ci=read();
+		for(int i=1;i&lt;=ci;++i)
+			a[i]=read();
+		for(int i=1;i&lt;=ci;++i)
+			for(int j=i+1;j&lt;=ci;++j)
 			{
-				ans+=now;//答案加上这一段最大值
-				flag=!flag;//肯定是变了正负
-				now=a;//设最大值初值
+				if(g[a[i]][a[j]]&gt;co)
+					g[a[i]][a[j]]=co,cnt[a[i]][a[j]]=j-i;
+				else if(g[i][j]==co)
+					cnt[a[i]][a[j]]=min(cnt[a[i]][a[j]],j-i);
 			}
-		}
-		ans+=now;//最后一段没处理，加上最大值
-		printf(&quot;%lld\n&quot;,ans);//输出，记得开long long
 	}
+	dij(s);
+	if(dis[t]==0x3f3f3f3f3f3f3f3f)
+		dis[t]=city[t]=-1;
+	printf(&quot;%lld %d&quot;,dis[t],city[t]);
 	return 0;
 }
+
 </code></pre>
-<p>感谢阅读！<s>点个赞再走呗！</s></p>
 
             </div>
             
@@ -364,7 +430,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf1343c-alternating-subsequence/" title="题解 CF1343C 【Alternating Subsequence】">https://xiaokongfufufu.github.io/post/ti-jie-cf1343c-alternating-subsequence/</a>
+      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/" title="题解 P3115 【[USACO15JAN]Cow Routing S】">https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -373,21 +439,19 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaokongfufufu.github.io/tag/Oz7lClRHYj/"># 模拟</a>
+      <a href="https://xiaokongfufufu.github.io/tag/yaYXZ6zGt/"># 图论</a>
+    
+      <a href="https://xiaokongfufufu.github.io/tag/pN4kkKmaUe/"># 最短路</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="题解 P5482 【[JLOI2011]不等式组】" href="https://xiaokongfufufu.github.io/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/">题解 P5482 【[JLOI2011]不等式组】</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="题解 P5482 【[JLOI2011]不等式组】" href="https://xiaokongfufufu.github.io/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="题解 CF1352B 【Same Parity Summands】" href="https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/">题解 CF1352B 【Same Parity Summands】</a>
-        <a class="nav-mobile-next" title="题解 CF1352B 【Same Parity Summands】" href="https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/">下一篇</a>
+        <a class="nav-pc-next" title="题解 P5482 【[JLOI2011]不等式组】" href="https://xiaokongfufufu.github.io/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/">题解 P5482 【[JLOI2011]不等式组】</a>
+        <a class="nav-mobile-next" title="题解 P5482 【[JLOI2011]不等式组】" href="https://xiaokongfufufu.github.io/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
