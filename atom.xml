@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-14T02:06:19.273Z</updated>
+    <updated>2020-06-14T02:31:21.045Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -341,7 +341,7 @@ int main()
 	return 0;
 }
 </code></pre>
-<p>感谢阅读！<s>点个赞再走呗！</s></p>
+<p>感谢阅读！</p>
 ]]></content>
     </entry>
     <entry>
@@ -437,7 +437,7 @@ int main()
 	return 0;
 }
 </code></pre>
-<p>感谢阅读！<s>点个赞再走呗</s></p>
+<p>感谢阅读！</p>
 ]]></content>
     </entry>
     <entry>
