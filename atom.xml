@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://xiaokongfufufu.cf</id>
+    <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-14T01:44:50.972Z</updated>
+    <updated>2020-06-14T02:05:26.383Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://xiaokongfufufu.cf"/>
-    <link rel="self" href="https://xiaokongfufufu.cf/atom.xml"/>
+    <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
+    <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
     <subtitle>欢迎大佬来吊打窝！！！</subtitle>
-    <logo>https://xiaokongfufufu.cf/images/avatar.png</logo>
-    <icon>https://xiaokongfufufu.cf/favicon.ico</icon>
+    <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
+    <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐的博客</rights>
     <entry>
         <title type="html"><![CDATA[题解 P3115 【[USACO15JAN]Cow Routing S】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-p3115-usaco15jancow-routing-s/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-p3115-usaco15jancow-routing-s/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/">
         </link>
         <updated>2020-06-13T15:19:53.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P3115">题目传送门</a></p>
@@ -120,8 +120,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 P5482 【[JLOI2011]不等式组】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p5482-jloi2011bu-deng-shi-zu/">
         </link>
         <updated>2020-06-06T13:29:46.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P5482">题目传送门</a></p>
@@ -298,8 +298,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF1343C 【Alternating Subsequence】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-cf1343c-alternating-subsequence/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-cf1343c-alternating-subsequence/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-cf1343c-alternating-subsequence/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-cf1343c-alternating-subsequence/">
         </link>
         <updated>2020-05-29T07:51:09.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF1343C">题目传送门1</a></p>
@@ -346,8 +346,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF1352B 【Same Parity Summands】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-cf1352b-same-parity-summands/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-cf1352b-same-parity-summands/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/">
         </link>
         <updated>2020-05-29T03:48:45.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF1352B">题目传送门1</a></p>
@@ -442,8 +442,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 P6264 【[COCI2014/2015#3]DOM】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-p6264-coci201420153dom/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-p6264-coci201420153dom/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/">
         </link>
         <updated>2020-05-29T01:23:58.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P6264">题目传送门</a></p>
@@ -512,8 +512,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF483B 【Friends and Presents】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-cf483b-friends-and-presents/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-cf483b-friends-and-presents/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/">
         </link>
         <updated>2020-05-29T01:13:05.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF483B">题目传送门1</a></p>
@@ -581,8 +581,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[题解 洛谷P5656 【【模板】二元一次不定方程(exgcd)】]]></title>
-        <id>https://xiaokongfufufu.cf/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/</id>
-        <link href="https://xiaokongfufufu.cf/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/">
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/">
         </link>
         <updated>2020-05-28T12:15:17.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P5656">题目传送门</a></p>
@@ -688,8 +688,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[第三场NOI Online能力测试入门组游记]]></title>
-        <id>https://xiaokongfufufu.cf/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/</id>
-        <link href="https://xiaokongfufufu.cf/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/">
+        <id>https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/</id>
+        <link href="https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/">
         </link>
         <updated>2020-05-28T07:44:51.000Z</updated>
         <content type="html"><![CDATA[<p>这次入门组怎么那么水啊……，CCF也有放水的时候？？？</p>
@@ -702,8 +702,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[第二场NOI Online能力测试入门组自闭记]]></title>
-        <id>https://xiaokongfufufu.cf/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/</id>
-        <link href="https://xiaokongfufufu.cf/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/">
+        <id>https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/</id>
+        <link href="https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/">
         </link>
         <updated>2020-05-28T03:10:08.000Z</updated>
         <content type="html"><![CDATA[<p>NOI ONLINE 1发挥不好，但BJ网很好。但NOI ONLINE 2怎么就炸了。加上莫名头有点疼，考试的时候代码没查出来问题，但考完后第二天秒查出错QWQ。</p>
@@ -717,8 +717,8 @@ int main()
     </entry>
     <entry>
         <title type="html"><![CDATA[exgcd的用法]]></title>
-        <id>https://xiaokongfufufu.cf/post/exgcd-de-yong-fa/</id>
-        <link href="https://xiaokongfufufu.cf/post/exgcd-de-yong-fa/">
+        <id>https://xiaokongfufufu.github.io/post/exgcd-de-yong-fa/</id>
+        <link href="https://xiaokongfufufu.github.io/post/exgcd-de-yong-fa/">
         </link>
         <updated>2020-05-28T01:30:55.000Z</updated>
         <content type="html"><![CDATA[<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">exgcd</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{exgcd}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop"><span class="mord mathrm">e</span><span class="mord mathrm">x</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">c</span><span class="mord mathrm">d</span></span></span></span></span>就是求不等式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>×</mo><mi>x</mi><mo>+</mo><mi>b</mi><mo>×</mo><mi>y</mi><mo>=</mo><mi>gcd</mi><mo>⁡</mo><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">a\times x+b\times y=\gcd(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span style="margin-right:0.01389em;">g</span>cd</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>的其中一组整数解<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>,<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>的方法。</p>
