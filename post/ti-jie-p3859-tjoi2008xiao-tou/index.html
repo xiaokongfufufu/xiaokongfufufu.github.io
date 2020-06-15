@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="欢迎大佬来吊打窝！！！">
 <meta name="theme-color" content="#000">
-<title>关于本站 | 小恐的博客</title>
+<title>题解 P3859  【[TJOI2008]小偷】 | 小恐的博客</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1592235319591">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="关于本站" />
-  <meta name="keywords" content="" />
+  <meta name="description" content="题解 P3859  【[TJOI2008]小偷】" />
+  <meta name="keywords" content="动态规划" />
 </head>
 
 <body>
@@ -253,8 +253,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/about/">
-      关于本站
+    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/">
+      题解 P3859  【[TJOI2008]小偷】
     </a>
   </h1>
   <div class="post-meta">
@@ -262,32 +262,105 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2019-01-25</span>
+      <span>2020-06-15</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://xiaokongfufufu.github.io/tag/73sfPPT8L/">
+        <span>动态规划</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>2<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>40<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>397<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="这是哪">这是哪</h2>
-<p>这里是小恐的个人博客呢。</p>
-<h2 id="小恐是谁">小恐是谁</h2>
-<p>BJ初一蒟蒻OIer&amp;MOer</p>
-<h2 id="这里有啥">这里有啥</h2>
-<p>主要放题解、算法讲解、游记……</p>
+              <p>这是一道有点变形的背包问题</p>
+<p><s>名字起得有点问题，我同学说做出来的都是小偷</s></p>
+<p>这个小哥只能从0号门出，如果后面的门没关，但前面的门关了，他还是出不来。所以我们要把每个门的关闭时间更新为前面的们最早关闭时间（0不用）</p>
+<p>按时间dp，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>记录第i时刻后获得的宝石最大价值</p>
+<p>上代码：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+using namespace std;
+int a[55],d[105],r[105],t[105],v[105],dp[1005];
+int main()
+{
+	int n,m;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i=0;i&lt;n;++i)
+		scanf(&quot;%d&quot;,a+i);//每个门的关闭时间 
+	for(int i=1;i&lt;n;++i)
+		a[i]=min(a[i],a[i-1]);//更新为前面门关闭最早时间（0号不用） 
+	for(int i=1;i&lt;=m;++i)
+		scanf(&quot;%d%d%d&quot;,r+i,v+i,t+i);//如题意所示 
+	for(int i=1;i&lt;=m;++i)
+		d[i]=a[r[i]];//第i个宝石的房间关闭时间 
+	for(int i=1;i&lt;a[0];++i)//枚举从第一时刻到第0号门关闭前一时刻
+	{
+		dp[i]=dp[i-1];//如果这一时刻什么都不拿 
+		for(int j=1;j&lt;=m;++j)
+			if(i&gt;=t[j]&amp;&amp;i&lt;d[j])//这些时间够拿第j个宝石并且严格早于关闭时间 
+				dp[i]=max(dp[i-t[j]]+v[j],dp[i]);//更新dp[i] 
+	}
+	printf(&quot;%d&quot;,dp[a[0]-1]);//输出最后一时刻（0号门关闭时间前一时刻）最大获得宝石价值 
+	return 0;
+ } 
+</code></pre>
 
             </div>
             
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      小恐
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/" title="题解 P3859  【[TJOI2008]小偷】">https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://xiaokongfufufu.github.io/tag/73sfPPT8L/"># 动态规划</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="题解 P3115 【[USACO15JAN]Cow Routing S】" href="https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/">题解 P3115 【[USACO15JAN]Cow Routing S】</a>
+        <a class="nav-mobile-next" title="题解 P3115 【[USACO15JAN]Cow Routing S】" href="https://xiaokongfufufu.github.io/post/ti-jie-p3115-usaco15jancow-routing-s/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
             
             
   
