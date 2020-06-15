@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-15T15:35:30.211Z</updated>
+    <updated>2020-06-15T15:36:31.954Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -16,7 +16,8 @@
         <link href="https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/">
         </link>
         <updated>2020-06-15T15:11:26.000Z</updated>
-        <content type="html"><![CDATA[<p>这是一道有点变形的背包问题</p>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P3859">题目传送门</a></p>
+<p>这是一道有点变形的背包问题</p>
 <p><s>名字起得有点问题，我同学说做出来的都是小偷</s></p>
 <p>这个小哥只能从0号门出，如果后面的门没关，但前面的门关了，他还是出不来。所以我们要把每个门的关闭时间更新为前面的们最早关闭时间（0不用）</p>
 <p>按时间dp，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>记录第i时刻后获得的宝石最大价值</p>
