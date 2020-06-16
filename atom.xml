@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-16T00:27:49.119Z</updated>
+    <updated>2020-06-16T00:35:42.178Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -10,6 +10,72 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 P2851 【[USACO06DEC]最少的硬币The Fewest Coins】]]></title>
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-p2851-usaco06deczui-shao-de-ying-bi-the-fewest-coins/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p2851-usaco06deczui-shao-de-ying-bi-the-fewest-coins/">
+        </link>
+        <updated>2020-06-16T00:34:25.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P2851">题目传送门</a></p>
+<p>这应该是一道多重背包和完全背包的组合问题。</p>
+<p>John付费就是多重背包，这个可以进行二进制优化。二进制优化就是说将每种硬币分成若干组，使得能选出若干组，凑出所有硬币的个数。显然（大雾，我们可以把它们分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span>个、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>个、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">2^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>个……。到最后不够下一个数时，我们将剩下的再分成一组。这样就节省了很多时间（否则会T）。</p>
+<p>店主找钱就是完全背包，这个就非常普通啦，不会上网查吧。</p>
+<p>至于枚举到多大（John付的钱数），我们可以从时间上考虑。每种钱的个数最多10000，也就是差不多<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>，n最大100，考虑到跑1秒最多<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">10^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span>，最多枚举到66666。保险起见，一般数据时限会在std两倍以上，所以我们就去个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac 2 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>，就是40000。</p>
+<p>没听明白？上代码吧：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+#define MAXN 40000
+using namespace std;
+int v[105],dp[MAXN+5],dp2[MAXN+5];//dp为多重，dp2为完全，表示最少用dp[i]枚硬币能凑到i元
+int main()
+{
+	int n,t;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;t);
+	for(int i=1;i&lt;=n;++i)
+		scanf(&quot;%d&quot;,v+i);
+	memset(dp,999999,sizeof(dp));//设成无限大
+	dp[0]=0;//初始化
+	for(int i=1;i&lt;=n;++i)
+	{
+		int c;
+		scanf(&quot;%d&quot;,&amp;c);
+		int bei=1;
+		while(bei&lt;=c)//二进制优化
+		{
+			int cc=bei*v[i];
+			int ww=bei;
+			for(int j=MAXN;j&gt;=cc;--j)
+				dp[j]=min(dp[j],dp[j-cc]+ww);//多重背包
+			c-=bei;
+			bei*=2;
+		}
+		if(c)
+		{
+			int cc=c*v[i];
+			int ww=c;
+			for(int j=MAXN;j&gt;=cc;--j)
+				dp[j]=min(dp[j],dp[j-cc]+ww);//多重背包
+		}
+	}
+	memset(dp2,999999,sizeof(dp2));//设成无限大
+	dp2[0]=0;//初始化
+	for(int i=1;i&lt;=n;++i)
+		for(int j=v[i];j&lt;=MAXN-t;++j)
+			dp2[j]=min(dp2[j-v[i]]+1,dp2[j]);//完全背包
+	int ans=1e9;
+	for(int i=0;i&lt;=MAXN-t;++i)
+		ans=min(ans,dp2[i]+dp[i+t]);//找最小
+	if(ans&lt;1e9)
+		printf(&quot;%d&quot;,ans);
+	else
+		printf(&quot;-1&quot;);
+	return 0;
+}
+</code></pre>
+<p><strong>所有的代码都要自己敲，请勿Ctrl C+Ctrl V</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 UVA12657 【移动盒子 Boxes in a Line】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-uva12657-yi-dong-he-zi-boxes-in-a-line/</id>
@@ -863,20 +929,6 @@ int main()
 	return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第三场NOI Online能力测试入门组游记]]></title>
-        <id>https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/</id>
-        <link href="https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/">
-        </link>
-        <updated>2020-05-28T07:44:51.000Z</updated>
-        <content type="html"><![CDATA[<p>这次入门组怎么那么水啊……，CCF也有放水的时候？？？</p>
-<p>看到第一题，这不就是个sb的字符串题吗？预感到这次不会很难。我这个sb把文件输入输出写到快读函数里了，还好我又查了一遍（貌似那样写也没事）。赛后看到很多人被<code>size()</code>卡了，用<code>strlen()</code>的我<s>窃喜</s>。</p>
-<p>再看第二题，整个记忆化的dfs就得了。不知道为什么好多人写错。</p>
-<p>看第三题，变形多重背包？于是用单调队列优化干掉了。这次CCF的题解是二进制优化？艹，这复杂度……过不去吧……。没想到最后ccf还是放水了qaq。</p>
-<p>考完以后感觉T3可能超时啊……后来发现如果预算取所有询问的最大值那时间就没那么吓人了。</p>
-<p>我这个sb就这样AK了？好不可思议啊……</p>
 ]]></content>
     </entry>
 </feed>
