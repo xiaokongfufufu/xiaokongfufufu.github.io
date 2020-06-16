@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-06-15T15:36:31.954Z</updated>
+    <updated>2020-06-16T00:27:49.119Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -10,6 +10,144 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 UVA12657 【移动盒子 Boxes in a Line】]]></title>
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-uva12657-yi-dong-he-zi-boxes-in-a-line/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-uva12657-yi-dong-he-zi-boxes-in-a-line/">
+        </link>
+        <updated>2020-06-16T00:26:18.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/UVA12657">题目传送门</a></p>
+<p><s>调了2天才写对，我真是太弱了！</s></p>
+<p>要在中间插入，用数组的话要全体向后移一位。显然复杂度肯定爆了！那就用链表吧。好像没有其他好的数据结构了（<s>或者是我没想到，毕竟我很弱</s>）。</p>
+<p>由于复杂度的问题最烦的就是4操作。如果枚举把链表倒过来复杂度照样超。于是我们发现链表的顺序只对1、2操作的左右和最后输出有影响。于是如果现在链表是倒着的并且执行1、2操作，那就换一下（是1则变2，否则变1）。输出的话如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>是奇数的话怎么反转都是把奇数位加起来。但<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>是偶数的话则分两种情况：</p>
+<ol>
+<li>转了奇数次，相当于转了1次，输出偶数位</li>
+<li>转了偶数次，相当于没转，输出奇数位</li>
+</ol>
+<p>还有，如果3操作交换是，要特判两数相邻的情况，我卡了好久！</p>
+<p>最后就上代码吧（请忽略我那丑陋的马蜂QWQ）：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+#define MAXN 100005
+using namespace std;
+struct node
+{
+	int data;
+	node *next;
+};
+int n,m,id;
+node *zhi[MAXN];
+bool flag;
+int main()
+{
+	while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF)
+	{
+		++id;//第几组数据，输出时用 
+		flag=1;//顺序正序，0则为倒序 
+		node *head=new node;//新的head 
+		head-&gt;next=NULL;//初值 
+		node *ptr=head;//记录上一个指针 
+		for(int i=1;i&lt;=n;++i)
+		{
+			node *p=new node;//新的指针 
+			p-&gt;next=NULL;//目前下一个为空 
+			p-&gt;data=i;//数为i 
+			ptr-&gt;next=p;//上一个数的next指向p 
+			zhi[i]=ptr;//这个数的上一个数的指针为ptr 
+			ptr=p;//更新ptr 
+		}
+		for(int i=1;i&lt;=m;++i)
+		{
+			int k,x,y;
+			scanf(&quot;%d&quot;,&amp;k);
+			if(!flag&amp;&amp;(k==1||k==2))//如果倒序又是与左右有关系 
+				k=3-k;//交换 
+			if(k==1)
+			{
+				scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+				node *p=zhi[x]-&gt;next;
+				zhi[x]-&gt;next=zhi[x]-&gt;next-&gt;next;
+				if(zhi[x]-&gt;next)
+					zhi[zhi[x]-&gt;next-&gt;data]=zhi[x];
+				/*删掉x的位置*/ 
+				p-&gt;next=zhi[y]-&gt;next;
+				zhi[y]-&gt;next=p;
+				zhi[x]=zhi[y];
+				zhi[p-&gt;next-&gt;data]=p;
+				/*把x放到y的左边*/
+			}
+			else if(k==2)
+			{
+				scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+				node *p=zhi[x]-&gt;next;
+				zhi[x]-&gt;next=zhi[x]-&gt;next-&gt;next;
+				if(zhi[x]-&gt;next)
+					zhi[zhi[x]-&gt;next-&gt;data]=zhi[x];
+				/*删掉x的位置*/ 
+				p-&gt;next=zhi[y]-&gt;next-&gt;next;
+				zhi[y]-&gt;next-&gt;next=p;
+				zhi[x]=zhi[y]-&gt;next;
+				if(p-&gt;next)
+					zhi[p-&gt;next-&gt;data]=p;
+				/*把x放到y的右边*/ 
+			}
+			else if(k==3)
+			{
+				scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+				if(zhi[y]-&gt;next==zhi[x])//x是y的下一个，方便起见交换一下，反正没有顺序 
+					swap(x,y);
+				if(zhi[x]-&gt;next==zhi[y])//相邻 
+				{
+					node *p=zhi[x]-&gt;next,*q=zhi[y]-&gt;next;
+					zhi[x]-&gt;next=q;
+					p-&gt;next=q-&gt;next;
+					q-&gt;next=p;
+					zhi[y]=zhi[x];
+					zhi[x]=q;
+					if(p-&gt;next)
+						zhi[p-&gt;next-&gt;data]=p;
+				}
+				else//不相邻 
+				{
+					node *p=zhi[x]-&gt;next,*q=zhi[y]-&gt;next,*p1=p-&gt;next,*q1=q-&gt;next;				
+					zhi[x]-&gt;next=q,q-&gt;next=p1;
+					zhi[y]-&gt;next=p,p-&gt;next=q1;;
+					node *t=zhi[y];
+					zhi[y]=zhi[x];
+					zhi[x]=t;
+					if(p1)
+						zhi[p1-&gt;data]=q;
+					if(q1)
+						zhi[q1-&gt;data]=p;
+				}
+			}
+			else//反转 
+				flag=!flag;
+		}
+		bool ji=0;
+		long long sum=0;//记得开long long哦 
+		ptr=head;
+		for(node *i=head-&gt;next;i;i=i-&gt;next)
+		{
+			ji=!ji;
+			if(n%2&amp;&amp;ji)//n为奇数，第奇数个 
+                    sum+=i-&gt;data;
+            else if(!(n%2)&amp;&amp;flag&amp;&amp;ji)//n为偶数，第奇数个，反转偶数次 
+                    sum+=i-&gt;data;
+            else if(!(n%2)&amp;&amp;!flag&amp;&amp;!ji)//n为偶数，第偶数个，反转奇数次 
+                    sum+=i-&gt;data;
+            delete ptr;//防止内存泄漏，删了！ 
+            ptr=i;//更新ptr 
+		}
+		delete ptr;//最后一个还没删，删了！ 
+		printf(&quot;Case %d: %lld\n&quot;,id,sum);//输出 
+	}
+	return 0;
+}
+</code></pre>
+<p>感谢阅读！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 P3859  【[TJOI2008]小偷】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/</id>
@@ -739,21 +877,6 @@ int main()
 <p>看第三题，变形多重背包？于是用单调队列优化干掉了。这次CCF的题解是二进制优化？艹，这复杂度……过不去吧……。没想到最后ccf还是放水了qaq。</p>
 <p>考完以后感觉T3可能超时啊……后来发现如果预算取所有询问的最大值那时间就没那么吓人了。</p>
 <p>我这个sb就这样AK了？好不可思议啊……</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[第二场NOI Online能力测试入门组自闭记]]></title>
-        <id>https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/</id>
-        <link href="https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/">
-        </link>
-        <updated>2020-05-28T03:10:08.000Z</updated>
-        <content type="html"><![CDATA[<p>NOI ONLINE 1发挥不好，但BJ网很好。但NOI ONLINE 2怎么就炸了。加上莫名头有点疼，考试的时候代码没查出来问题，但考完后第二天秒查出错QWQ。</p>
-<p>看到第一题：貌似是个贪心+前缀和+二分啊，随便敲了敲就过了。跑了组极限数据，过了就不管了。</p>
-<p>第二题：一看就是搜索+？想了想没思路，寻思把T3看看再回来拿个部分分。</p>
-<p>第三题：数学计数问题？推了推柿子，只会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">n\le1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span>的，就开敲，写了好久，应该有1h吧。一开始没看到要取模，后来看到了，却sb的只在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\le x\le n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mi>y</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n&lt;y\le2\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>时取模了，另外一种情况忘了（真是个菜鸡，这都能忘），60 -&gt; 30分。</p>
-<p>回去看第二题，打算把没有技能的情况写了，结果犯了个sb错误（敲错字母了），以为会抱灵。结果CCF数据出的水死了，拿了50 -&gt; 40分。</p>
-<p>总分：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mo>+</mo><mn>40</mn><mo>+</mo><mn>30</mn><mo>=</mo><mn>170</mn></mrow><annotation encoding="application/x-tex">100+40+30=170</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">7</span><span class="mord">0</span></span></span></span>，菜死了啊啊啊，本来能拿210啊啊啊</p>
-<p>总结：一堆sb错误，下次一定要认真啊啊啊啊！</p>
 ]]></content>
     </entry>
 </feed>
