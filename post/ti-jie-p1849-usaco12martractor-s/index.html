@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="欢迎大佬来吊打窝！！！">
 <meta name="theme-color" content="#000">
-<title>第二场NOI Online能力测试入门组自闭记 | 小恐的博客</title>
+<title>题解 P1849 【[USACO12MAR]Tractor S】 | 小恐的博客</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1592466277719">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="第二场NOI Online能力测试入门组自闭记" />
-  <meta name="keywords" content="游记" />
+  <meta name="description" content="题解 P1849 【[USACO12MAR]Tractor S】" />
+  <meta name="keywords" content="广度优先搜索" />
 </head>
 
 <body>
@@ -273,8 +273,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/">
-      第二场NOI Online能力测试入门组自闭记
+    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p1849-usaco12martractor-s/">
+      题解 P1849 【[USACO12MAR]Tractor S】
     </a>
   </h1>
   <div class="post-meta">
@@ -282,7 +282,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-28</span>
+      <span>2020-06-18</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -291,8 +291,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://xiaokongfufufu.github.io/tag/6uJ9fG_lOB/">
-        <span>游记</span>
+      <a href="https://xiaokongfufufu.github.io/tag/X-Q59bSCR/">
+        <span>广度优先搜索</span>
       </a>
       
       
@@ -301,24 +301,103 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>316<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>442<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>NOI ONLINE 1发挥不好，但BJ网很好。但NOI ONLINE 2怎么就炸了。加上莫名头有点疼，考试的时候代码没查出来问题，但考完后第二天秒查出错QWQ。</p>
-<p>看到第一题：貌似是个贪心+前缀和+二分啊，随便敲了敲就过了。跑了组极限数据，过了就不管了。</p>
-<p>第二题：一看就是搜索+？想了想没思路，寻思把T3看看再回来拿个部分分。</p>
-<p>第三题：数学计数问题？推了推柿子，只会<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≤</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">n\le1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span>的，就开敲，写了好久，应该有1h吧。一开始没看到要取模，后来看到了，却sb的只在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\le x\le n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mi>y</mi><mo>≤</mo><mn>2</mn><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">n&lt;y\le2\times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>时取模了，另外一种情况忘了（真是个菜鸡，这都能忘），60 -&gt; 30分。</p>
-<p>回去看第二题，打算把没有技能的情况写了，结果犯了个sb错误（敲错字母了），以为会抱灵。结果CCF数据出的水死了，拿了50 -&gt; 40分。</p>
-<p>总分：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn><mo>+</mo><mn>40</mn><mo>+</mo><mn>30</mn><mo>=</mo><mn>170</mn></mrow><annotation encoding="application/x-tex">100+40+30=170</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">7</span><span class="mord">0</span></span></span></span>，菜死了啊啊啊，本来能拿210啊啊啊</p>
-<p>总结：一堆sb错误，下次一定要认真啊啊啊啊！</p>
+              <p><a href="https://www.luogu.com.cn/problem/P1849">题目传送门</a></p>
+<p>题意要求出最少移动多少堆干草，那我就求出最少经过多少堆干草。</p>
+<p>考虑广搜，因为走了一步后可能多了一堆干草，也可能没多，所以为了维护广搜必须小的优先，所以用双端队列。如果新走到的是干草堆，因为要加1，所以从队尾入队，否则从队首入队。这样就保证了小的优先。</p>
+<p>由于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo>≤</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">1\le x_i,y_i\le1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span>，又可能他需要从外面绕，所以多加一个，存一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1001</mn><mo>×</mo><mn>1001</mn></mrow><annotation encoding="application/x-tex">1001\times1001</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span></span></span></span>的图，如果这个位置有干草堆，则标为‘#’，否则标为‘.’。</p>
+<p>然后直接广搜搜就行。</p>
+<p>上代码：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;deque&gt;
+using namespace std;
+const int NR=1e3+5;
+const int MR=1e3+5;
+const int INF=0x3f3f3f3f;
+typedef long long LL;
+int read()
+{
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-')
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
+	{
+		x=x*10+ch-'0';
+		ch=getchar();
+	}
+	return x*=bei;
+}
+bool gan[NR][MR];
+bool book[NR][MR];
+int dis[NR][MR];
+int dx[5]={0,0,1,-1};
+int dy[5]={1,-1,0,0};
+struct Node
+{
+	int x,y;
+};
+deque&lt;Node&gt; q;
+int main()
+{
+	int t=read(),sx=read(),sy=read();
+	while(t--)
+	{
+		int x=read(),y=read();
+		gan[x][y]=1;
+	}
+	book[sx][sy]=1;
+	int n=1e3+1;
+	memset(dis,0x3f,sizeof(dis));
+	dis[sx][sy]=0;
+	q.push_front((Node){sx,sy});
+	while(!q.empty())
+	{
+		Node pos=q.front();
+		q.pop_front();
+		if(pos.x==0&amp;&amp;pos.y==0)
+			break;
+		for(int i=0;i&lt;4;++i)
+		{
+			int tx=dx[i]+pos.x,ty=dy[i]+pos.y;
+			if(tx&gt;n||tx&lt;0||ty&gt;n||ty&lt;0)
+				continue;
+			if(book[tx][ty])
+				continue;
+			book[tx][ty]=1;
+			if(gan[tx][ty])
+			{
+				dis[tx][ty]=dis[pos.x][pos.y]+1;
+				q.push_back((Node){tx,ty});
+			}
+			else
+			{
+				dis[tx][ty]=dis[pos.x][pos.y];
+				q.push_front((Node){tx,ty});
+			}
+		}
+	}
+	printf(&quot;%d&quot;,dis[0][0]);
+	return 0;
+}
+
+</code></pre>
 
             </div>
             
@@ -331,7 +410,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/" title="第二场NOI Online能力测试入门组自闭记">https://xiaokongfufufu.github.io/post/di-er-chang-noi-online-neng-li-ce-shi-ru-men-zu-zi-bi-ji/</a>
+      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p1849-usaco12martractor-s/" title="题解 P1849 【[USACO12MAR]Tractor S】">https://xiaokongfufufu.github.io/post/ti-jie-p1849-usaco12martractor-s/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -340,21 +419,17 @@
   </ul>
   <div class="tags">
     
-      <a href="https://xiaokongfufufu.github.io/tag/6uJ9fG_lOB/"># 游记</a>
+      <a href="https://xiaokongfufufu.github.io/tag/X-Q59bSCR/"># 广度优先搜索</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="第三场NOI Online能力测试入门组游记" href="https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/">第三场NOI Online能力测试入门组游记</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="第三场NOI Online能力测试入门组游记" href="https://xiaokongfufufu.github.io/post/di-san-chang-noi-online-neng-li-ce-shi-ru-men-zu-you-ji/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="exgcd的用法" href="https://xiaokongfufufu.github.io/post/exgcd-de-yong-fa/">exgcd的用法</a>
-        <a class="nav-mobile-next" title="exgcd的用法" href="https://xiaokongfufufu.github.io/post/exgcd-de-yong-fa/">下一篇</a>
+        <a class="nav-pc-next" title="题解 P2851 【[USACO06DEC]最少的硬币The Fewest Coins】" href="https://xiaokongfufufu.github.io/post/ti-jie-p2851-usaco06deczui-shao-de-ying-bi-the-fewest-coins/">题解 P2851 【[USACO06DEC]最少的硬币The Fewest Coins】</a>
+        <a class="nav-mobile-next" title="题解 P2851 【[USACO06DEC]最少的硬币The Fewest Coins】" href="https://xiaokongfufufu.github.io/post/ti-jie-p2851-usaco06deczui-shao-de-ying-bi-the-fewest-coins/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
