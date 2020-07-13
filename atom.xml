@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐的博客</title>
-    <updated>2020-07-03T10:27:03.168Z</updated>
+    <updated>2020-07-13T00:44:13.483Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -12,6 +12,99 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 SP1437 【PT07Z - Longest path in a tree】]]></title>
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-sp1437-pt07z-longest-path-in-a-tree/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-sp1437-pt07z-longest-path-in-a-tree/">
+        </link>
+        <updated>2020-07-13T00:39:45.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/SP1437">题目传送门1</a><br>
+<a href="https://www.spoj.com/problems/PT07Z/">题目传送门2</a></p>
+<p>这是树的直径模板题吧</p>
+<p><s>看到大部分大佬都用dfs，小蒟蒻便来拯救一下bfs</s></p>
+<p>方法我也懒得证了，<a href="https://www.luogu.com.cn/blog/user26317/solution-sp1437">看这吧</a>。就是先随便找一个点求出离他最远的点，则这个点一定是某条直径的一端，再求出离他最远的点就行了。</p>
+<p>话不多说，上代码：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;queue&gt;
+#define MAXN 10005
+using namespace std;
+void read(int &amp;x)
+{
+	x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-')
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
+	{
+		x=x*10+ch-'0';
+		ch=getchar();
+	}
+	x*=bei;
+}
+int n,a,b,dis[MAXN],book[MAXN],first[MAXN],te,t,maxx,maxi;
+struct edge
+{
+	int to,next;
+}edges[MAXN*2];
+queue&lt;int&gt; q;
+void add(int a,int b)
+{
+	++te;
+	edges[te].next=first[a];
+	edges[te].to=b;
+	first[a]=te;
+}
+void bfs(int start)
+{
+	q.push(start);
+	dis[start]=0;
+	book[start]=1;
+	while(!q.empty())
+	{
+		t=q.front();
+		q.pop();
+		for(int i=first[t];i;i=edges[i].next)
+		{
+			if(!book[edges[i].to])
+			{
+				dis[edges[i].to]=dis[t]+1;
+				book[edges[i].to]=1;
+				q.push(edges[i].to);
+			}
+		}
+	}
+}
+int main()
+{
+	read(n);
+	for(int i=1;i&lt;n;++i)
+	{
+		read(a),read(b);
+		add(a,b);
+		add(b,a);
+	}
+	bfs(1);
+	for(int i=1;i&lt;=n;++i)
+		if(dis[i]&gt;maxx)
+			maxx=dis[i],maxi=i;
+	memset(book,0,sizeof(book));
+	bfs(maxi);
+	maxx=0;
+	for(int i=1;i&lt;=n;++i)
+		maxx=max(dis[i],maxx);
+	printf(&quot;%d&quot;,maxx);
+	return 0;
+}
+</code></pre>
+<p>感谢阅读！<s>点个赞再走呗</s></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 P4160 【[SCOI2009]生日快乐】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-p4160-scoi2009sheng-ri-kuai-le/</id>
@@ -832,76 +925,6 @@ int main()
 	}
 	return 0;
 }
-</code></pre>
-<p>感谢阅读！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 P6264 【[COCI2014/2015#3]DOM】]]></title>
-        <id>https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/</id>
-        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/">
-        </link>
-        <updated>2020-05-29T01:23:58.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P6264">题目传送门</a></p>
-<p>这道题中每个频道有唯一的它下一个要跳转的频道，或者就没有下一个，如果没有下一个那就不会有老人再去调频道了。如果有，那么它的下一个一定是第一个讨厌它的老人喜欢的频道。</p>
-<p>记录完了后就从初始频道开始走，循环也好，dfs也行，我习惯用dfs。我们需要把看过的频道打上标记，如果这个点之前走过又回来了，那永远也停不下来，输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>，因为每个频道最多看一次，所以时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>，不会超时。</p>
-<p>上代码：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-using namespace std;
-const int NR=1e5+5;
-const int MR=1e5+5;
-const int INF=0x3f3f3f3f;
-typedef long long LL;
-int read()//快读
-{
-	int x=0;
-	int bei=1;
-	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9')
-	{
-		if(ch=='-')
-			bei=-1;
-		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
-	{
-		x=x*10+ch-'0';
-		ch=getchar();
-	}
-	return x*=bei;
-}
-int nxt[MR];//每个频道的下一个
-bool book[MR];//记录看没看过
-int cnt;//调了几次频道
-void dfs(int x)
-{
-	if(book[x])//之前走过
-	{
-		cnt=-1;//答案为-1
-		return;
-	}
-	if(nxt[x]==-1)//后面没有了
-		return;//停！
-	++cnt;//次数+1
-	book[x]=1;//标记看过
-	dfs(nxt[x]);//继续调
-}
-int main()
-{
-	memset(nxt,-1,sizeof(nxt));//全默认-1
-	int n=read(),m=read(),p=read();
-	for(int i=1;i&lt;=n;++i)
-	{
-		int u=read(),v=read();
-		if(nxt[v]==-1)//是第一个讨厌这个频道的
-			nxt[v]=u;//记录下一个
-	}
-	dfs(p);//从初始频道开始
-	printf(&quot;%d&quot;,cnt);//输出答案
-	return 0;
-}
-
 </code></pre>
 <p>感谢阅读！</p>
 ]]></content>
