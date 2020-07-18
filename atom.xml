@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
-    <title>小恐的博客</title>
-    <updated>2020-07-15T10:53:05.261Z</updated>
+    <title>小恐 の 小窝</title>
+    <updated>2020-07-18T09:39:58.107Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
 </subtitle>
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 小恐的博客</rights>
+    <rights>All rights reserved 2020, 小恐 の 小窝</rights>
     <entry>
         <title type="html"><![CDATA[题解 P5960 【【模板】差分约束算法】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-p5960-mo-ban-chai-fen-yue-shu-suan-fa/</id>
