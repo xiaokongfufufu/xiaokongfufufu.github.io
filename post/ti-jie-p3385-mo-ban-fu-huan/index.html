@@ -10,7 +10,7 @@
 
 ">
 <meta name="theme-color" content="#000">
-<title>题解 P6264 【[COCI2014/2015#3]DOM】 | 小恐 の 小窝</title>
+<title>题解 P3385 【【模板】负环】 | 小恐 の 小窝</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1595752731825">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/fonts/font-awesome.css">
@@ -40,8 +40,8 @@
 
 
 
-  <meta name="description" content="题解 P6264 【[COCI2014/2015#3]DOM】" />
-  <meta name="keywords" content="模拟" />
+  <meta name="description" content="题解 P3385 【【模板】负环】" />
+  <meta name="keywords" content="负环" />
 </head>
 
 <body>
@@ -334,8 +334,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/">
-      题解 P6264 【[COCI2014/2015#3]DOM】
+    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p3385-mo-ban-fu-huan/">
+      题解 P3385 【【模板】负环】
     </a>
   </h1>
   <div class="post-meta">
@@ -343,7 +343,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-29</span>
+      <span>2020-07-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -352,8 +352,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://xiaokongfufufu.github.io/tag/Oz7lClRHYj/">
-        <span>模拟</span>
+      <a href="https://xiaokongfufufu.github.io/tag/TNzanVOwl/">
+        <span>负环</span>
       </a>
       
       
@@ -362,29 +362,34 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>407<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>452<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.luogu.com.cn/problem/P6264">题目传送门</a></p>
-<p>这道题中每个频道有唯一的它下一个要跳转的频道，或者就没有下一个，如果没有下一个那就不会有老人再去调频道了。如果有，那么它的下一个一定是第一个讨厌它的老人喜欢的频道。</p>
-<p>记录完了后就从初始频道开始走，循环也好，dfs也行，我习惯用dfs。我们需要把看过的频道打上标记，如果这个点之前走过又回来了，那永远也停不下来，输出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>，因为每个频道最多看一次，所以时间复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>，不会超时。</p>
+              <p><a href="https://www.luogu.com.cn/problem/P3385">题目传送门</a></p>
+<p>经典模板题，然而之前我的解法被卡了（</p>
+<p>结果被卡之后还老是忘，所以这里采用一个不易错的写法。</p>
+<p>这里判断有负环的条件是如果到一个点的最短路经过了大于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>条边，说明一定经过了两次某个点，故有环。然而这是最短路，所以去掉那个环走的路更多，所以那个环是负环。</p>
+<p>这时候就可以在松弛的时候判环啦，而且个人感觉比点入队次数好理解（</p>
 <p>上代码：</p>
 <pre><code class="language-cpp">#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
+#include&lt;queue&gt;
 using namespace std;
-const int NR=1e5+5;
-const int MR=1e5+5;
-const int INF=0x3f3f3f3f;
 typedef long long LL;
-int read()//快读
+typedef unsigned long long ULL;
+const int NR=2e3+5;
+const int MR=3e3+5;
+const int INF=0x3f3f3f3f;
+const int MOD=1e9+7;
+inline int read()
 {
 	int x=0;
 	int bei=1;
@@ -400,39 +405,76 @@ int read()//快读
 		x=x*10+ch-'0';
 		ch=getchar();
 	}
-	return x*=bei;
+	return x*bei;
 }
-int nxt[MR];//每个频道的下一个
-bool book[MR];//记录看没看过
-int cnt;//调了几次频道
-void dfs(int x)
+int n,m;
+struct Edge
 {
-	if(book[x])//之前走过
+	int v,nxt,w;
+}g[MR&lt;&lt;1];
+int fte[NR],gsz;
+void adde(int u,int v,int w)
+{
+	g[++gsz]=(Edge){v,fte[u],w};
+	fte[u]=gsz;
+}
+queue&lt;int&gt; q;
+bool book[NR];
+int dis[NR],cnt[NR];
+bool spfa(int s)
+{
+	memset(dis,0x3f,sizeof(dis));
+	memset(cnt,0,sizeof(cnt));
+	memset(book,0,sizeof(book));
+	while(!q.empty())
+		q.pop();
+	dis[s]=0,book[s]=1,q.push(s);
+	while(!q.empty())
 	{
-		cnt=-1;//答案为-1
-		return;
+		int x=q.front();
+		q.pop();
+		book[x]=0;
+		for(int i=fte[x];i;i=g[i].nxt)
+		{
+			int y=g[i].v;
+			if(dis[y]&gt;dis[x]+g[i].w)
+			{
+				dis[y]=dis[x]+g[i].w;
+				cnt[y]=cnt[x]+1;
+				if(cnt[y]&gt;=n)
+					return 1;
+				if(!book[y])
+				{
+					book[y]=1;
+					q.push(y);
+				}
+			}
+		}
 	}
-	if(nxt[x]==-1)//后面没有了
-		return;//停！
-	++cnt;//次数+1
-	book[x]=1;//标记看过
-	dfs(nxt[x]);//继续调
+	return 0;
 }
 int main()
 {
-	memset(nxt,-1,sizeof(nxt));//全默认-1
-	int n=read(),m=read(),p=read();
-	for(int i=1;i&lt;=n;++i)
+	int t=read();
+	while(t--)
 	{
-		int u=read(),v=read();
-		if(nxt[v]==-1)//是第一个讨厌这个频道的
-			nxt[v]=u;//记录下一个
+		n=read(),m=read();
+		memset(fte,0,sizeof(fte));
+		gsz=0;
+		for(int i=1;i&lt;=m;++i)
+		{
+			int u=read(),v=read(),w=read();
+			adde(u,v,w);
+			if(w&gt;=0)
+				adde(v,u,w);
+		}
+		if(spfa(1))
+			puts(&quot;YES&quot;);
+		else
+			puts(&quot;NO&quot;);
 	}
-	dfs(p);//从初始频道开始
-	printf(&quot;%d&quot;,cnt);//输出答案
 	return 0;
 }
-
 </code></pre>
 <p>感谢阅读！</p>
 
@@ -447,7 +489,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/" title="题解 P6264 【[COCI2014/2015#3]DOM】">https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/</a>
+      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p3385-mo-ban-fu-huan/" title="题解 P3385 【【模板】负环】">https://xiaokongfufufu.github.io/post/ti-jie-p3385-mo-ban-fu-huan/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -456,21 +498,17 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaokongfufufu.github.io/tag/Oz7lClRHYj/"># 模拟</a>
+      <a href="https://xiaokongfufufu.github.io/tag/TNzanVOwl/"># 负环</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="题解 CF1352B 【Same Parity Summands】" href="https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/">题解 CF1352B 【Same Parity Summands】</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="题解 CF1352B 【Same Parity Summands】" href="https://xiaokongfufufu.github.io/post/ti-jie-cf1352b-same-parity-summands/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="题解 CF483B 【Friends and Presents】" href="https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/">题解 CF483B 【Friends and Presents】</a>
-        <a class="nav-mobile-next" title="题解 CF483B 【Friends and Presents】" href="https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/">下一篇</a>
+        <a class="nav-pc-next" title="题解 P2504 【[HAOI2006]聪明的猴子】" href="https://xiaokongfufufu.github.io/post/ti-jie-p2504-haoi2006cong-ming-de-hou-zi/">题解 P2504 【[HAOI2006]聪明的猴子】</a>
+        <a class="nav-mobile-next" title="题解 P2504 【[HAOI2006]聪明的猴子】" href="https://xiaokongfufufu.github.io/post/ti-jie-p2504-haoi2006cong-ming-de-hou-zi/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
