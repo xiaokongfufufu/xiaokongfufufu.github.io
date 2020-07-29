@@ -11,7 +11,7 @@
 ">
 <meta name="theme-color" content="#000">
 <title>题解 P5960 【【模板】差分约束算法】 | 小恐 の 小窝</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1595919349962">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1596013567008">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -216,7 +216,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-count">21</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -991,6 +991,89 @@ int main()
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/"" data-c="
+          &lt;p&gt;什么欧几里得距离？明明是欧几里得距离的平方好吗？&lt;s&gt;哪个家伙翻译的那么没良心？我们翻到最后一看：书虫！哦，正常正常，书虫翻译肯定会出锅的&lt;/s&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;这题几乎就是最小生成树板子题，只需要枚举每两个点，把距离小于&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;c&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;c&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;的边不要就行了。&lt;/p&gt;
+&lt;p&gt;由于是稠密图，肯定就是&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.064108em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8141079999999999em;&#34;&gt;&lt;span style=&#34;top:-3.063em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;的朴素的prim比其他&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;msub&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O(mlog_2m)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.01968em;&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;g&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.30110799999999993em;&#34;&gt;&lt;span style=&#34;top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.15em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;的算法更优啦！&lt;/p&gt;
+&lt;p&gt;上代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include&amp;lt;stdio.h&amp;gt;
+#include&amp;lt;string.h&amp;gt;
+#include&amp;lt;algorithm&amp;gt;
+using namespace std;
+typedef long long LL;
+typedef unsigned long long ULL;
+const int NR=2e3+5;
+const int MR=1e5+5;
+const int INF=0x3f3f3f3f;
+const int MOD=1e9+7;
+inline int read()
+{
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&amp;lt;&#39;0&#39;||ch&amp;gt;&#39;9&#39;)
+	{
+		if(ch==&#39;-&#39;)
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&amp;gt;=&#39;0&#39;&amp;amp;&amp;amp;ch&amp;lt;=&#39;9&#39;)
+	{
+		x=x*10+ch-&#39;0&#39;;
+		ch=getchar();
+	}
+	return x*bei;
+}
+int g[NR][NR];
+int dis[NR];
+int x[NR],y[NR];
+bool book[NR];
+LL ans;
+int main()
+{
+	memset(g,0x3f,sizeof(g));
+	memset(dis,0x3f,sizeof(dis));
+	int n=read(),c=read();
+	for(int i=1;i&amp;lt;=n;++i)
+		x[i]=read(),y[i]=read();
+	for(int i=1;i&amp;lt;=n;++i)
+		for(int j=1;j&amp;lt;=n;++j)
+		{
+			int dist=(x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j]);
+			if(dist&amp;lt;c)
+				continue;
+			g[i][j]=dist;
+		}
+	dis[1]=0;
+	while(1)
+	{
+		int minn=INF,mini;
+		for(int i=1;i&amp;lt;=n;++i)
+			if(!book[i]&amp;amp;&amp;amp;dis[i]&amp;lt;minn)
+				minn=dis[i],mini=i;
+		if(minn==INF)
+			break;
+		book[mini]=1,ans+=minn;
+		for(int i=1;i&amp;lt;=n;++i)
+			if(!book[i])
+				dis[i]=min(dis[i],g[mini][i]);
+	}
+	for(int i=1;i&amp;lt;=n;++i)
+		if(!book[i])
+		{
+			puts(&amp;quot;-1&amp;quot;);
+			return 0;
+		}
+	printf(&amp;quot;%lld&amp;quot;,ans);
+	return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+">题解 P2212 【[USACO14MAR]Watering the Fields S】</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://xiaokongfufufu.github.io/post/ti-jie-cf500b-new-year-permutation/"" data-c="

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-07-28T06:58:23.723Z</updated>
+    <updated>2020-07-29T09:06:13.069Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -12,6 +12,92 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐 の 小窝</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 P2212 【[USACO14MAR]Watering the Fields S】]]></title>
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/">
+        </link>
+        <updated>2020-07-29T09:04:27.000Z</updated>
+        <content type="html"><![CDATA[<p>什么欧几里得距离？明明是欧几里得距离的平方好吗？<s>哪个家伙翻译的那么没良心？我们翻到最后一看：书虫！哦，正常正常，书虫翻译肯定会出锅的</s></p>
+<hr>
+<p>这题几乎就是最小生成树板子题，只需要枚举每两个点，把距离小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>的边不要就行了。</p>
+<p>由于是稠密图，肯定就是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>的朴素的prim比其他<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>m</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(mlog_2m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>的算法更优啦！</p>
+<p>上代码：</p>
+<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+typedef unsigned long long ULL;
+const int NR=2e3+5;
+const int MR=1e5+5;
+const int INF=0x3f3f3f3f;
+const int MOD=1e9+7;
+inline int read()
+{
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-')
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
+	{
+		x=x*10+ch-'0';
+		ch=getchar();
+	}
+	return x*bei;
+}
+int g[NR][NR];
+int dis[NR];
+int x[NR],y[NR];
+bool book[NR];
+LL ans;
+int main()
+{
+	memset(g,0x3f,sizeof(g));
+	memset(dis,0x3f,sizeof(dis));
+	int n=read(),c=read();
+	for(int i=1;i&lt;=n;++i)
+		x[i]=read(),y[i]=read();
+	for(int i=1;i&lt;=n;++i)
+		for(int j=1;j&lt;=n;++j)
+		{
+			int dist=(x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j]);
+			if(dist&lt;c)
+				continue;
+			g[i][j]=dist;
+		}
+	dis[1]=0;
+	while(1)
+	{
+		int minn=INF,mini;
+		for(int i=1;i&lt;=n;++i)
+			if(!book[i]&amp;&amp;dis[i]&lt;minn)
+				minn=dis[i],mini=i;
+		if(minn==INF)
+			break;
+		book[mini]=1,ans+=minn;
+		for(int i=1;i&lt;=n;++i)
+			if(!book[i])
+				dis[i]=min(dis[i],g[mini][i]);
+	}
+	for(int i=1;i&lt;=n;++i)
+		if(!book[i])
+		{
+			puts(&quot;-1&quot;);
+			return 0;
+		}
+	printf(&quot;%lld&quot;,ans);
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 CF500B 【New Year Permutation】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-cf500b-new-year-permutation/</id>
@@ -838,47 +924,6 @@ int main()
 }
 </code></pre>
 <p>感谢阅读！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 P3859  【[TJOI2008]小偷】]]></title>
-        <id>https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/</id>
-        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p3859-tjoi2008xiao-tou/">
-        </link>
-        <updated>2020-06-15T15:11:26.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P3859">题目传送门</a></p>
-<p>这是一道有点变形的背包问题</p>
-<p><s>名字起得有点问题，我同学说做出来的都是小偷</s></p>
-<p>这个小哥只能从0号门出，如果后面的门没关，但前面的门关了，他还是出不来。所以我们要把每个门的关闭时间更新为前面的们最早关闭时间（0不用）</p>
-<p>按时间dp，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>记录第i时刻后获得的宝石最大价值</p>
-<p>上代码：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;iostream&gt;
-using namespace std;
-int a[55],d[105],r[105],t[105],v[105],dp[1005];
-int main()
-{
-	int n,m;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-	for(int i=0;i&lt;n;++i)
-		scanf(&quot;%d&quot;,a+i);//每个门的关闭时间 
-	for(int i=1;i&lt;n;++i)
-		a[i]=min(a[i],a[i-1]);//更新为前面门关闭最早时间（0号不用） 
-	for(int i=1;i&lt;=m;++i)
-		scanf(&quot;%d%d%d&quot;,r+i,v+i,t+i);//如题意所示 
-	for(int i=1;i&lt;=m;++i)
-		d[i]=a[r[i]];//第i个宝石的房间关闭时间 
-	for(int i=1;i&lt;a[0];++i)//枚举从第一时刻到第0号门关闭前一时刻
-	{
-		dp[i]=dp[i-1];//如果这一时刻什么都不拿 
-		for(int j=1;j&lt;=m;++j)
-			if(i&gt;=t[j]&amp;&amp;i&lt;d[j])//这些时间够拿第j个宝石并且严格早于关闭时间 
-				dp[i]=max(dp[i-t[j]]+v[j],dp[i]);//更新dp[i] 
-	}
-	printf(&quot;%d&quot;,dp[a[0]-1]);//输出最后一时刻（0号门关闭时间前一时刻）最大获得宝石价值 
-	return 0;
- } 
-</code></pre>
 ]]></content>
     </entry>
 </feed>
