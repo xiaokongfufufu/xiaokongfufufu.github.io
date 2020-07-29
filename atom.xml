@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-07-29T10:21:11.245Z</updated>
+    <updated>2020-07-29T10:23:32.754Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -19,7 +19,6 @@
         </link>
         <updated>2020-07-29T09:04:27.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P2212">题目传送门</a></p>
-<p><a href="https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/">更好的阅读体验</a></p>
 <p>什么欧几里得距离？明明是欧几里得距离的平方好吗？<s>哪个家伙翻译的那么没良心？我们翻到最后一看：书虫！哦，正常正常，书虫翻译肯定会出锅的</s></p>
 <hr>
 <p>这题几乎就是最小生成树板子题，只需要枚举每两个点，把距离小于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>的边不要就行了。</p>
