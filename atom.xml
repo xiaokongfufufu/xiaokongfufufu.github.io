@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-07-30T15:21:44.187Z</updated>
+    <updated>2020-08-05T15:07:17.054Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -12,6 +12,157 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐 の 小窝</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 CF52C 【Circular RMQ】]]></title>
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-cf52c-circular-rmq/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-cf52c-circular-rmq/">
+        </link>
+        <updated>2020-08-05T15:06:10.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF52C">题目传送门1</a><br>
+<a href="https://codeforces.com/problemset/problem/52/C">题目传送门2</a></p>
+<p>几乎就是一个裸的线段树。</p>
+<p>然而本题的细节问题挺多的：</p>
+<ol>
+<li>
+<p>这道题是环形的：乍一看很难搞，稍微想想发现可以如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>&gt;</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">l&gt;r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>的话直接处理<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>的数列就可以了。</p>
+</li>
+<li>
+<p>读入数据并没有告诉你这是修改还是求最小值，这时普通读入就有点难搞了，我们可以在快读上判断。假设cf造数据不会行末多一些空格，则如果快读读入的最后一个字符是空格，则还有数，则为修改。否则就是询问。</p>
+</li>
+<li>
+<p>这题虽然是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mo>≤</mo><msub><mi>a</mi><mi>i</mi></msub><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">-10^6\le a_i\le10^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="mord">−</span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>，且是求最小值，但修改的时候加有可能加爆int，所以要用long long。</p>
+</li>
+</ol>
+<p>然后就可以开心的写代码啦：</p>
+<pre><code class="language-cpp">// 给我这个菜鸡 AC 我就给你吃糖 qaq
+// puts(&quot;C12H22O11&quot;);
+#include&lt;stdio.h&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+typedef long long LL;
+typedef unsigned long long ULL;
+const int NR=2e5+5;
+const int MR=1e5+5;
+const LL INF=0x3f3f3f3f3f3f3f3f;
+const int MOD=1e9+7;
+bool flag;
+inline int read()
+{
+	flag=0;
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-')
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
+	{
+		x=x*10+ch-'0';
+		ch=getchar();
+	}
+	if(ch==' ')
+		flag=1;
+	return x*bei;
+}
+int a[NR];
+struct Segtree
+{
+	LL minn,add;
+}segtree[NR&lt;&lt;2];
+void push_up(int x,int l,int r)
+{
+	int ls=x&lt;&lt;1,rs=x&lt;&lt;1|1;
+	segtree[x].minn=min(segtree[ls].minn,segtree[rs].minn);
+}
+void push_down(int x,int l,int r)
+{
+	int ls=x&lt;&lt;1,rs=x&lt;&lt;1|1;
+	segtree[ls].minn+=segtree[x].add;
+	segtree[rs].minn+=segtree[x].add;
+	segtree[ls].add+=segtree[x].add;
+	segtree[rs].add+=segtree[x].add;
+	segtree[x].add=0;
+}
+void build(int x,int l,int r)
+{
+	if(l==r)
+	{
+		segtree[x]=(Segtree){a[l],0};
+		return;
+	}
+	int ls=x&lt;&lt;1,rs=x&lt;&lt;1|1;
+	int mid=l+r&gt;&gt;1;
+	build(ls,l,mid);
+	build(rs,mid+1,r);
+	push_up(x,l,r);
+}
+void modify(int x,int l,int r,int nl,int nr,int k)
+{
+	if(nl&lt;=l&amp;&amp;r&lt;=nr)
+	{
+		segtree[x].add+=k;
+		segtree[x].minn+=k;
+		return;
+	}
+	push_down(x,l,r);
+	int mid=l+r&gt;&gt;1;
+	int ls=x&lt;&lt;1,rs=x&lt;&lt;1|1;
+	if(nl&lt;=mid)
+		modify(ls,l,mid,nl,nr,k);
+	if(nr&gt;mid)
+		modify(rs,mid+1,r,nl,nr,k);
+	push_up(x,l,r);
+}
+LL query(int x,int l,int r,int nl,int nr)
+{
+	if(nl&lt;=l&amp;&amp;r&lt;=nr)
+		return segtree[x].minn;
+	push_down(x,l,r);
+	int ls=x&lt;&lt;1,rs=x&lt;&lt;1|1;
+	int mid=l+r&gt;&gt;1;
+	LL minn=INF;
+	if(nl&lt;=mid)
+		minn=min(minn,query(ls,l,mid,nl,nr));
+	if(nr&gt;mid)
+		minn=min(minn,query(rs,mid+1,r,nl,nr));
+	return minn;
+}
+int main()
+{
+	int n=read();
+	for(int i=1;i&lt;=n;++i)
+		a[i]=read();
+	build(1,1,n);
+	int m=read();
+	while(m--)
+	{
+		int l=read(),r=read();
+		++l,++r;
+		if(flag)
+		{
+			int k=read();
+			if(l&gt;r)
+				modify(1,1,n,l,n,k),modify(1,1,n,1,r,k);
+			else
+				modify(1,1,n,l,r,k);
+		}
+		else
+		{
+			if(l&gt;r)
+				printf(&quot;%lld\n&quot;,min(query(1,1,n,l,n),query(1,1,n,1,r)));
+			else
+				printf(&quot;%lld\n&quot;,query(1,1,n,l,r));
+		}
+	}
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 P2212 【[USACO14MAR]Watering the Fields S】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/</id>
@@ -788,144 +939,6 @@ int main()
 	return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 UVA12657 【移动盒子 Boxes in a Line】]]></title>
-        <id>https://xiaokongfufufu.github.io/post/ti-jie-uva12657-yi-dong-he-zi-boxes-in-a-line/</id>
-        <link href="https://xiaokongfufufu.github.io/post/ti-jie-uva12657-yi-dong-he-zi-boxes-in-a-line/">
-        </link>
-        <updated>2020-06-16T00:26:18.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/UVA12657">题目传送门</a></p>
-<p><s>调了2天才写对，我真是太弱了！</s></p>
-<p>要在中间插入，用数组的话要全体向后移一位。显然复杂度肯定爆了！那就用链表吧。好像没有其他好的数据结构了（<s>或者是我没想到，毕竟我很弱</s>）。</p>
-<p>由于复杂度的问题最烦的就是4操作。如果枚举把链表倒过来复杂度照样超。于是我们发现链表的顺序只对1、2操作的左右和最后输出有影响。于是如果现在链表是倒着的并且执行1、2操作，那就换一下（是1则变2，否则变1）。输出的话如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>是奇数的话怎么反转都是把奇数位加起来。但<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>是偶数的话则分两种情况：</p>
-<ol>
-<li>转了奇数次，相当于转了1次，输出偶数位</li>
-<li>转了偶数次，相当于没转，输出奇数位</li>
-</ol>
-<p>还有，如果3操作交换是，要特判两数相邻的情况，我卡了好久！</p>
-<p>最后就上代码吧（请忽略我那丑陋的马蜂QWQ）：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;iostream&gt;
-#define MAXN 100005
-using namespace std;
-struct node
-{
-	int data;
-	node *next;
-};
-int n,m,id;
-node *zhi[MAXN];
-bool flag;
-int main()
-{
-	while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF)
-	{
-		++id;//第几组数据，输出时用 
-		flag=1;//顺序正序，0则为倒序 
-		node *head=new node;//新的head 
-		head-&gt;next=NULL;//初值 
-		node *ptr=head;//记录上一个指针 
-		for(int i=1;i&lt;=n;++i)
-		{
-			node *p=new node;//新的指针 
-			p-&gt;next=NULL;//目前下一个为空 
-			p-&gt;data=i;//数为i 
-			ptr-&gt;next=p;//上一个数的next指向p 
-			zhi[i]=ptr;//这个数的上一个数的指针为ptr 
-			ptr=p;//更新ptr 
-		}
-		for(int i=1;i&lt;=m;++i)
-		{
-			int k,x,y;
-			scanf(&quot;%d&quot;,&amp;k);
-			if(!flag&amp;&amp;(k==1||k==2))//如果倒序又是与左右有关系 
-				k=3-k;//交换 
-			if(k==1)
-			{
-				scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-				node *p=zhi[x]-&gt;next;
-				zhi[x]-&gt;next=zhi[x]-&gt;next-&gt;next;
-				if(zhi[x]-&gt;next)
-					zhi[zhi[x]-&gt;next-&gt;data]=zhi[x];
-				/*删掉x的位置*/ 
-				p-&gt;next=zhi[y]-&gt;next;
-				zhi[y]-&gt;next=p;
-				zhi[x]=zhi[y];
-				zhi[p-&gt;next-&gt;data]=p;
-				/*把x放到y的左边*/
-			}
-			else if(k==2)
-			{
-				scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-				node *p=zhi[x]-&gt;next;
-				zhi[x]-&gt;next=zhi[x]-&gt;next-&gt;next;
-				if(zhi[x]-&gt;next)
-					zhi[zhi[x]-&gt;next-&gt;data]=zhi[x];
-				/*删掉x的位置*/ 
-				p-&gt;next=zhi[y]-&gt;next-&gt;next;
-				zhi[y]-&gt;next-&gt;next=p;
-				zhi[x]=zhi[y]-&gt;next;
-				if(p-&gt;next)
-					zhi[p-&gt;next-&gt;data]=p;
-				/*把x放到y的右边*/ 
-			}
-			else if(k==3)
-			{
-				scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-				if(zhi[y]-&gt;next==zhi[x])//x是y的下一个，方便起见交换一下，反正没有顺序 
-					swap(x,y);
-				if(zhi[x]-&gt;next==zhi[y])//相邻 
-				{
-					node *p=zhi[x]-&gt;next,*q=zhi[y]-&gt;next;
-					zhi[x]-&gt;next=q;
-					p-&gt;next=q-&gt;next;
-					q-&gt;next=p;
-					zhi[y]=zhi[x];
-					zhi[x]=q;
-					if(p-&gt;next)
-						zhi[p-&gt;next-&gt;data]=p;
-				}
-				else//不相邻 
-				{
-					node *p=zhi[x]-&gt;next,*q=zhi[y]-&gt;next,*p1=p-&gt;next,*q1=q-&gt;next;				
-					zhi[x]-&gt;next=q,q-&gt;next=p1;
-					zhi[y]-&gt;next=p,p-&gt;next=q1;;
-					node *t=zhi[y];
-					zhi[y]=zhi[x];
-					zhi[x]=t;
-					if(p1)
-						zhi[p1-&gt;data]=q;
-					if(q1)
-						zhi[q1-&gt;data]=p;
-				}
-			}
-			else//反转 
-				flag=!flag;
-		}
-		bool ji=0;
-		long long sum=0;//记得开long long哦 
-		ptr=head;
-		for(node *i=head-&gt;next;i;i=i-&gt;next)
-		{
-			ji=!ji;
-			if(n%2&amp;&amp;ji)//n为奇数，第奇数个 
-                    sum+=i-&gt;data;
-            else if(!(n%2)&amp;&amp;flag&amp;&amp;ji)//n为偶数，第奇数个，反转偶数次 
-                    sum+=i-&gt;data;
-            else if(!(n%2)&amp;&amp;!flag&amp;&amp;!ji)//n为偶数，第偶数个，反转奇数次 
-                    sum+=i-&gt;data;
-            delete ptr;//防止内存泄漏，删了！ 
-            ptr=i;//更新ptr 
-		}
-		delete ptr;//最后一个还没删，删了！ 
-		printf(&quot;Case %d: %lld\n&quot;,id,sum);//输出 
-	}
-	return 0;
-}
-</code></pre>
-<p>感谢阅读！</p>
 ]]></content>
     </entry>
 </feed>
