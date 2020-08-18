@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-08-18T15:43:36.485Z</updated>
+    <updated>2020-08-18T15:48:30.004Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -18,7 +18,8 @@
         <link href="https://xiaokongfufufu.github.io/post/ti-jie-p6770-usaco05marchecking-an-alibi-bu-zai-chang-de-zheng-ming/">
         </link>
         <updated>2020-08-18T15:42:24.000Z</updated>
-        <content type="html"><![CDATA[<p>一道非常简单的最短路题。</p>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P6770">题目传送门</a></p>
+<p>一道非常简单的最短路题。</p>
 <p>有嫌疑的牛就相当于是在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span> 秒内可以从那张照片中的位置跑到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号草地的牛。由于是双向图，所以从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号草地跑最短路，看每头牛从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号草地出发到照片中的位置的最短路是否不超过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>，如果不超过则有嫌疑，输出即可。</p>
 <p>由于这题复杂度非常松，所以用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Bellman-Ford</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{Bellman-Ford}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mop"><span class="mord mathrm">B</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span><span class="mord mathrm">l</span><span class="mord mathrm">m</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm">-</span><span class="mord mathrm">F</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">d</span></span></span></span></span> 就可以了。</p>
 <p>上代码：</p>
