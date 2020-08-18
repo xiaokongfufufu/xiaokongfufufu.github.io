@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-08-18T07:52:15.975Z</updated>
+    <updated>2020-08-18T15:43:36.485Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -12,6 +12,83 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐 の 小窝</rights>
+    <entry>
+        <title type="html"><![CDATA[题解 P6770 【[USACO05MAR]Checking an Alibi 不在场的证明】]]></title>
+        <id>https://xiaokongfufufu.github.io/post/ti-jie-p6770-usaco05marchecking-an-alibi-bu-zai-chang-de-zheng-ming/</id>
+        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p6770-usaco05marchecking-an-alibi-bu-zai-chang-de-zheng-ming/">
+        </link>
+        <updated>2020-08-18T15:42:24.000Z</updated>
+        <content type="html"><![CDATA[<p>一道非常简单的最短路题。</p>
+<p>有嫌疑的牛就相当于是在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span> 秒内可以从那张照片中的位置跑到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号草地的牛。由于是双向图，所以从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号草地跑最短路，看每头牛从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 号草地出发到照片中的位置的最短路是否不超过 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>，如果不超过则有嫌疑，输出即可。</p>
+<p>由于这题复杂度非常松，所以用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Bellman-Ford</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\operatorname{Bellman-Ford}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mop"><span class="mord mathrm">B</span><span class="mord mathrm">e</span><span class="mord mathrm">l</span><span class="mord mathrm">l</span><span class="mord mathrm">m</span><span class="mord mathrm">a</span><span class="mord mathrm">n</span><span class="mord mathrm">-</span><span class="mord mathrm">F</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">d</span></span></span></span></span> 就可以了。</p>
+<p>上代码：</p>
+<pre><code class="language-cpp">// 给我这个菜鸡 AC 我就给你吃糖 qaq
+// puts(&quot;C12H22O11&quot;);
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+using namespace std;
+typedef long long LL;
+typedef unsigned long long ULL;
+const int NR=500+5;
+const int MR=1e3+5;
+const int INF=0x3f3f3f3f;
+const int MOD=1e9+7;
+inline int read()
+{
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&lt;'0'||ch&gt;'9')
+	{
+		if(ch=='-')
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
+	{
+		x=x*10+ch-'0';
+		ch=getchar();
+	}
+	return x*bei;
+}
+int dis[NR];
+int ans[105];
+int u[MR],v[MR],w[MR];
+int main()
+{
+	int n=read(),m=read(),cow=read(),M=read();
+	for(int i=1;i&lt;=m;++i)
+		u[i]=read(),v[i]=read(),w[i]=read();
+	bool flag=1;
+	memset(dis,0x3f,sizeof(dis));
+	dis[1]=0;
+	while(flag)
+	{
+		flag=0;
+		for(int i=1;i&lt;=m;++i)
+		{
+			if(dis[u[i]]&gt;dis[v[i]]+w[i])
+				dis[u[i]]=dis[v[i]]+w[i],flag=1;
+			if(dis[v[i]]&gt;dis[u[i]]+w[i])
+				dis[v[i]]=dis[u[i]]+w[i],flag=1;
+		}
+	}
+	int cnt=0;
+	for(int i=1;i&lt;=cow;++i)
+	{
+		int x=read();
+		if(dis[x]&lt;=M)
+			ans[++cnt]=i;
+	}
+	printf(&quot;%d\n&quot;,cnt);
+	for(int i=1;i&lt;=cnt;++i)
+		printf(&quot;%d\n&quot;,ans[i]);
+	return 0;
+}
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[NOI2020网络同步赛保龄记]]></title>
         <id>https://xiaokongfufufu.github.io/post/noi2020-wang-luo-tong-bu-sai-bao-ling-ji/</id>
@@ -808,100 +885,6 @@ int main()
 	printf(&quot;%.6lf&quot;,dfs(x,y,n));
 	return 0;
 }
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 P1849 【[USACO12MAR]Tractor S】]]></title>
-        <id>https://xiaokongfufufu.github.io/post/ti-jie-p1849-usaco12martractor-s/</id>
-        <link href="https://xiaokongfufufu.github.io/post/ti-jie-p1849-usaco12martractor-s/">
-        </link>
-        <updated>2020-06-18T07:43:43.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/P1849">题目传送门</a></p>
-<p>题意要求出最少移动多少堆干草，那我就求出最少经过多少堆干草。</p>
-<p>考虑广搜，因为走了一步后可能多了一堆干草，也可能没多，所以为了维护广搜必须小的优先，所以用双端队列。如果新走到的是干草堆，因为要加1，所以从队尾入队，否则从队首入队。这样就保证了小的优先。</p>
-<p>由于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo>≤</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">1\le x_i,y_i\le1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span>，又可能他需要从外面绕，所以多加一个，存一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1001</mn><mo>×</mo><mn>1001</mn></mrow><annotation encoding="application/x-tex">1001\times1001</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span></span></span></span>的图，如果这个位置有干草堆，则标为‘#’，否则标为‘.’。</p>
-<p>然后直接广搜搜就行。</p>
-<p>上代码：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;deque&gt;
-using namespace std;
-const int NR=1e3+5;
-const int MR=1e3+5;
-const int INF=0x3f3f3f3f;
-typedef long long LL;
-int read()
-{
-	int x=0;
-	int bei=1;
-	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9')
-	{
-		if(ch=='-')
-			bei=-1;
-		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
-	{
-		x=x*10+ch-'0';
-		ch=getchar();
-	}
-	return x*=bei;
-}
-bool gan[NR][MR];
-bool book[NR][MR];
-int dis[NR][MR];
-int dx[5]={0,0,1,-1};
-int dy[5]={1,-1,0,0};
-struct Node
-{
-	int x,y;
-};
-deque&lt;Node&gt; q;
-int main()
-{
-	int t=read(),sx=read(),sy=read();
-	while(t--)
-	{
-		int x=read(),y=read();
-		gan[x][y]=1;
-	}
-	book[sx][sy]=1;
-	int n=1e3+1;
-	memset(dis,0x3f,sizeof(dis));
-	dis[sx][sy]=0;
-	q.push_front((Node){sx,sy});
-	while(!q.empty())
-	{
-		Node pos=q.front();
-		q.pop_front();
-		if(pos.x==0&amp;&amp;pos.y==0)
-			break;
-		for(int i=0;i&lt;4;++i)
-		{
-			int tx=dx[i]+pos.x,ty=dy[i]+pos.y;
-			if(tx&gt;n||tx&lt;0||ty&gt;n||ty&lt;0)
-				continue;
-			if(book[tx][ty])
-				continue;
-			book[tx][ty]=1;
-			if(gan[tx][ty])
-			{
-				dis[tx][ty]=dis[pos.x][pos.y]+1;
-				q.push_back((Node){tx,ty});
-			}
-			else
-			{
-				dis[tx][ty]=dis[pos.x][pos.y];
-				q.push_front((Node){tx,ty});
-			}
-		}
-	}
-	printf(&quot;%d&quot;,dis[0][0]);
-	return 0;
-}
-
 </code></pre>
 ]]></content>
     </entry>

@@ -11,7 +11,7 @@
 ">
 <meta name="theme-color" content="#000">
 <title>题解 P2504 【[HAOI2006]聪明的猴子】 | 小恐 の 小窝</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1597737132282">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1597765365935">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -216,7 +216,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">23</span>
+        <span class="site-item-stat-count">24</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -976,6 +976,80 @@ int main()
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://xiaokongfufufu.github.io/post/ti-jie-p6770-usaco05marchecking-an-alibi-bu-zai-chang-de-zheng-ming/"" data-c="
+          &lt;p&gt;一道非常简单的最短路题。&lt;/p&gt;
+&lt;p&gt;有嫌疑的牛就相当于是在 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;M&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 秒内可以从那张照片中的位置跑到 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 号草地的牛。由于是双向图，所以从 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 号草地跑最短路，看每头牛从 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 号草地出发到照片中的位置的最短路是否不超过 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;M&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.10903em;&#34;&gt;M&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，如果不超过则有嫌疑，输出即可。&lt;/p&gt;
+&lt;p&gt;由于这题复杂度非常松，所以用 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;Bellman-Ford&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\operatorname{Bellman-Ford}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.77777em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;&lt;span class=&#34;mord mathrm&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;l&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;F&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;r&lt;/span&gt;&lt;span class=&#34;mord mathrm&#34;&gt;d&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 就可以了。&lt;/p&gt;
+&lt;p&gt;上代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;// 给我这个菜鸡 AC 我就给你吃糖 qaq
+// puts(&amp;quot;C12H22O11&amp;quot;);
+#include&amp;lt;stdio.h&amp;gt;
+#include&amp;lt;string.h&amp;gt;
+using namespace std;
+typedef long long LL;
+typedef unsigned long long ULL;
+const int NR=500+5;
+const int MR=1e3+5;
+const int INF=0x3f3f3f3f;
+const int MOD=1e9+7;
+inline int read()
+{
+	int x=0;
+	int bei=1;
+	char ch=getchar();
+	while(ch&amp;lt;&#39;0&#39;||ch&amp;gt;&#39;9&#39;)
+	{
+		if(ch==&#39;-&#39;)
+			bei=-1;
+		ch=getchar();
+	}
+	while(ch&amp;gt;=&#39;0&#39;&amp;amp;&amp;amp;ch&amp;lt;=&#39;9&#39;)
+	{
+		x=x*10+ch-&#39;0&#39;;
+		ch=getchar();
+	}
+	return x*bei;
+}
+int dis[NR];
+int ans[105];
+int u[MR],v[MR],w[MR];
+int main()
+{
+	int n=read(),m=read(),cow=read(),M=read();
+	for(int i=1;i&amp;lt;=m;++i)
+		u[i]=read(),v[i]=read(),w[i]=read();
+	bool flag=1;
+	memset(dis,0x3f,sizeof(dis));
+	dis[1]=0;
+	while(flag)
+	{
+		flag=0;
+		for(int i=1;i&amp;lt;=m;++i)
+		{
+			if(dis[u[i]]&amp;gt;dis[v[i]]+w[i])
+				dis[u[i]]=dis[v[i]]+w[i],flag=1;
+			if(dis[v[i]]&amp;gt;dis[u[i]]+w[i])
+				dis[v[i]]=dis[u[i]]+w[i],flag=1;
+		}
+	}
+	int cnt=0;
+	for(int i=1;i&amp;lt;=cow;++i)
+	{
+		int x=read();
+		if(dis[x]&amp;lt;=M)
+			ans[++cnt]=i;
+	}
+	printf(&amp;quot;%d\n&amp;quot;,cnt);
+	for(int i=1;i&amp;lt;=cnt;++i)
+		printf(&amp;quot;%d\n&amp;quot;,ans[i]);
+	return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+">题解 P6770 【[USACO05MAR]Checking an Alibi 不在场的证明】</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://xiaokongfufufu.github.io/post/noi2020-wang-luo-tong-bu-sai-bao-ling-ji/"" data-c="
