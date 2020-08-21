@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-08-19T07:11:46.543Z</updated>
+    <updated>2020-08-21T06:56:16.105Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -121,6 +121,14 @@ int main()
 <h2 id="day-2">Day 2</h2>
 <p>保龄了，耶！</p>
 <p>第一题想了个假做法，然后后来发现假了，然后就颓颓颓，于是保龄了/kk</p>
+<h2 id="day">Day ?</h2>
+<p>出成绩了，53（<s>我想到了啥</s>）。</p>
+<p>我至今都不知道那9分是咋冒出来的/yiw</p>
+<p>不能再颓了，再颓就退役了/kk</p>
+<p>upd:大概知道我的分数是啥构成了：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>53</mn><mo>=</mo><mn>20</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>28</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">53=20+0+28+0+0+5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></p>
+<p>大概那4分是有个点ccf机子好水过去了……</p>
+<p>Day 2发挥太差了/kk</p>
 ]]></content>
     </entry>
     <entry>
