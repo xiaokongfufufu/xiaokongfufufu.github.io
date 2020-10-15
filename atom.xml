@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://xiaokongfufufu.github.io</id>
     <title>小恐 の 小窝</title>
-    <updated>2020-10-15T15:05:45.776Z</updated>
+    <updated>2020-10-15T15:07:57.979Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://xiaokongfufufu.github.io"/>
     <link rel="self" href="https://xiaokongfufufu.github.io/atom.xml"/>
@@ -12,6 +12,42 @@
     <logo>https://xiaokongfufufu.github.io/images/avatar.png</logo>
     <icon>https://xiaokongfufufu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 小恐 の 小窝</rights>
+    <entry>
+        <title type="html"><![CDATA[CSP 2020游记]]></title>
+        <id>https://xiaokongfufufu.github.io/post/csp-2020-you-ji/</id>
+        <link href="https://xiaokongfufufu.github.io/post/csp-2020-you-ji/">
+        </link>
+        <updated>2020-10-15T15:07:42.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="初赛">初赛</h1>
+<h2 id="day-1-day-0">Day -1 &amp; Day 0</h2>
+<p>月考，考八科挂八科（</p>
+<p>希望丢的分都被csp捕捉了吧（</p>
+<p><s>话说要都捕捉到了那我不就AK了/xyx</s></p>
+<pre><code class="language-cpp">while(没AK)
+	刷题
+</code></pre>
+<p>明天 <code>RP++</code>！</p>
+<h2 id="day-1">Day 1</h2>
+<p>今年好难啊！！！</p>
+<p>S大概 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>70</mn><mo>±</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">70\pm5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 吧</p>
+<p>J还没估分，晚上有空估吧。</p>
+<p><s>怎么感觉S能过，J要挂</s></p>
+<p>感觉要AFO了呢，我会不会成为史上最小AFO选手呢/kel</p>
+<p><s>话说不是一堆人要面基吗，这都谁是谁啊/fad</s></p>
+<p><s>那个跟我聊天的人又是谁啊/fad</s></p>
+<p>顺便月考成绩出来了，有点惨/dk</p>
+<p>不过好像都及格了，神奇。</p>
+<p><s>我们监考老师说看见作弊的可以像CCF举报，然后有人就问举报加分吗。。。</s></p>
+<p><s>这个CCF看起来好咕啊，全是选择题还是涂答题卡的还要等那么多天</s></p>
+<h2 id="day-2">Day 2</h2>
+<p>上学，被老师骂，被同学鄙视qaq</p>
+<h2 id="day-3">Day 3</h2>
+<p>woc北京就出了，居 然 没 咕，神奇！</p>
+<p>感觉分数线有亿点点低qaq</p>
+<p>我过了，过了，过了！！！</p>
+<p>草sb，过了初赛就那么激动</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[题解 P2618 【数字工程】]]></title>
         <id>https://xiaokongfufufu.github.io/post/ti-jie-p2618-shu-zi-gong-cheng/</id>
@@ -844,99 +880,6 @@ int main()
 	return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[题解 SP1437 【PT07Z - Longest path in a tree】]]></title>
-        <id>https://xiaokongfufufu.github.io/post/ti-jie-sp1437-pt07z-longest-path-in-a-tree/</id>
-        <link href="https://xiaokongfufufu.github.io/post/ti-jie-sp1437-pt07z-longest-path-in-a-tree/">
-        </link>
-        <updated>2020-07-13T00:39:45.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/SP1437">题目传送门1</a><br>
-<a href="https://www.spoj.com/problems/PT07Z/">题目传送门2</a></p>
-<p>这是树的直径模板题吧</p>
-<p><s>看到大部分大佬都用dfs，小蒟蒻便来拯救一下bfs</s></p>
-<p>方法我也懒得证了，<a href="https://www.luogu.com.cn/blog/user26317/solution-sp1437">看这吧</a>。就是先随便找一个点求出离他最远的点，则这个点一定是某条直径的一端，再求出离他最远的点就行了。</p>
-<p>话不多说，上代码：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;queue&gt;
-#define MAXN 10005
-using namespace std;
-void read(int &amp;x)
-{
-	x=0;
-	int bei=1;
-	char ch=getchar();
-	while(ch&lt;'0'||ch&gt;'9')
-	{
-		if(ch=='-')
-			bei=-1;
-		ch=getchar();
-	}
-	while(ch&gt;='0'&amp;&amp;ch&lt;='9')
-	{
-		x=x*10+ch-'0';
-		ch=getchar();
-	}
-	x*=bei;
-}
-int n,a,b,dis[MAXN],book[MAXN],first[MAXN],te,t,maxx,maxi;
-struct edge
-{
-	int to,next;
-}edges[MAXN*2];
-queue&lt;int&gt; q;
-void add(int a,int b)
-{
-	++te;
-	edges[te].next=first[a];
-	edges[te].to=b;
-	first[a]=te;
-}
-void bfs(int start)
-{
-	q.push(start);
-	dis[start]=0;
-	book[start]=1;
-	while(!q.empty())
-	{
-		t=q.front();
-		q.pop();
-		for(int i=first[t];i;i=edges[i].next)
-		{
-			if(!book[edges[i].to])
-			{
-				dis[edges[i].to]=dis[t]+1;
-				book[edges[i].to]=1;
-				q.push(edges[i].to);
-			}
-		}
-	}
-}
-int main()
-{
-	read(n);
-	for(int i=1;i&lt;n;++i)
-	{
-		read(a),read(b);
-		add(a,b);
-		add(b,a);
-	}
-	bfs(1);
-	for(int i=1;i&lt;=n;++i)
-		if(dis[i]&gt;maxx)
-			maxx=dis[i],maxi=i;
-	memset(book,0,sizeof(book));
-	bfs(maxi);
-	maxx=0;
-	for(int i=1;i&lt;=n;++i)
-		maxx=max(dis[i],maxx);
-	printf(&quot;%d&quot;,maxx);
-	return 0;
-}
-</code></pre>
-<p>感谢阅读！<s>点个赞再走呗</s></p>
 ]]></content>
     </entry>
 </feed>
