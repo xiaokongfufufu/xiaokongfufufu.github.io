@@ -10,7 +10,7 @@
 
 ">
 <meta name="theme-color" content="#000">
-<title>题解 CF500B 【New Year Permutation】 | 小恐 の 小窝</title>
+<title>题解 P2618 【数字工程】 | 小恐 の 小窝</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1602774342801">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/fonts/font-awesome.css">
@@ -40,8 +40,8 @@
 
 
 
-  <meta name="description" content="题解 CF500B 【New Year Permutation】" />
-  <meta name="keywords" content="并查集" />
+  <meta name="description" content="题解 P2618 【数字工程】" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -334,8 +334,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-cf500b-new-year-permutation/">
-      题解 CF500B 【New Year Permutation】
+    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p2618-shu-zi-gong-cheng/">
+      题解 P2618 【数字工程】
     </a>
   </h1>
   <div class="post-meta">
@@ -343,22 +343,9 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-07-28</span>
+      <span>2020-10-15</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://xiaokongfufufu.github.io/tag/YIeB4AhHU/">
-        <span>并查集</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -367,23 +354,41 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>394<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>347<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.luogu.com.cn/problem/CF500B">题目传送门1</a><br>
-<a href="http://codeforces.com/problemset/problem/500/B">题目传送门2</a></p>
-<p>这道题可以把能互换的位置都分到一组，然后如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">A_{i,j}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>的话那就相当于第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个位置和第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>个位置可以互换，就把他们以及和他们同组的位置分成一组。</p>
-<p>诶？集合合并，那是啥呢？并查集呀！！！那最后答案是啥呢？当然是与它同组的中还没用的最小的数啊！！！</p>
-<p>那就简单了，前面先用并查集合并，后面从小到大枚举每个位置，第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个位置从小到大枚举每个数查询是否被用过以及和第<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>个位置是否在同一组。</p>
-<p>晕？上代码：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+              <p><a href="https://www.luogu.com.cn/problem/P2618">题目传送门</a></p>
+<p>这题是一道 DP 题。</p>
+<p>我们可以设 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">dp_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 变成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 的最少消耗。</p>
+<p>则可以写出转移方程：</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><msub><mi>p</mi><mi>i</mi></msub><mo>=</mo><mi>min</mi><mo>⁡</mo><mo>(</mo><mi>d</mi><msub><mi>p</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>d</mi><msub><mi>p</mi><mi>j</mi></msub><mo>+</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">dp_i=\min(dp_{i-1}+1,dp_j+1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi><mo>∣</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">j\mid i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 且 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>i</mi><mi>j</mi></mfrac></mrow><annotation encoding="application/x-tex">\dfrac ij</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.2169600000000003em;vertical-align:-0.8804400000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3365200000000002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">i</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 为质数</p>
+<p>至于枚举 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> 就可以用分解质因数的方式，用 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 的时间复杂度枚举。所以总复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+<p>因为洛谷评测机比较快，且跑不满，所以能过。</p>
+<p>上代码：</p>
+<pre><code class="language-cpp">//Code by a weak man who named xiaokong, and he hopes the code can get more points.
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
+#include&lt;algorithm&gt;
 using namespace std;
 typedef long long LL;
 typedef unsigned long long ULL;
-const int NR=3e2+5;
+const int NR=1e6+5;
 const int MR=1e5+5;
 const int INF=0x3f3f3f3f;
 const int MOD=1e9+7;
@@ -405,39 +410,34 @@ inline int read()
 	}
 	return x*bei;
 }
-char s[NR][NR];
-int a[NR];
-int fa[NR];
-int getfa(int x)
-{
-	if(x==fa[x])
-		return x;
-	return fa[x]=getfa(fa[x]);
-}
-bool book[NR];
+int dp[NR];
 int main()
 {
-	int n=read();
-	for(int i=1;i&lt;=n;++i)
-		a[i]=read(),fa[i]=i;
-	for(int i=1;i&lt;=n;++i)
-		scanf(&quot;%s&quot;,s[i]+1);
-	for(int i=1;i&lt;=n;++i)
-		for(int j=1;j&lt;=n;++j)
-			if(s[i][j]=='1')
-				fa[getfa(a[i])]=getfa(a[j]);
-	for(int i=1;i&lt;=n;++i)
-		for(int j=1;j&lt;=n;++j)
-			if(!book[j]&amp;&amp;getfa(a[i])==getfa(j))
+	int n;
+	while(scanf(&quot;%d&quot;,&amp;n)!=EOF)
+	{
+		memset(dp,0x3f,sizeof(dp));
+		dp[1]=0;
+		for(int i=2;i&lt;=n;++i)
+		{
+			int t=i;
+			for(int j=2;j&lt;=sqrt(i);++j)
 			{
-				printf(&quot;%d &quot;,j),book[j]=1;
-				break;
+				if(t%j)
+					continue;
+				while(t%j==0)
+					t/=j;
+				dp[i]=min(dp[i],dp[i/j]+1);
 			}
+			if(t&gt;1)
+				dp[i]=min(dp[i],dp[i/t]+1);
+			dp[i]=min(dp[i],dp[i-1]+1);
+		}
+		printf(&quot;%d\n&quot;,dp[n]);
+	}
 	return 0;
 }
-
 </code></pre>
-<p>感谢阅读！</p>
 
             </div>
             
@@ -450,7 +450,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf500b-new-year-permutation/" title="题解 CF500B 【New Year Permutation】">https://xiaokongfufufu.github.io/post/ti-jie-cf500b-new-year-permutation/</a>
+      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p2618-shu-zi-gong-cheng/" title="题解 P2618 【数字工程】">https://xiaokongfufufu.github.io/post/ti-jie-p2618-shu-zi-gong-cheng/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -459,21 +459,15 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaokongfufufu.github.io/tag/YIeB4AhHU/"># 并查集</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="题解 P2212 【[USACO14MAR]Watering the Fields S】" href="https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/">题解 P2212 【[USACO14MAR]Watering the Fields S】</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="题解 P2212 【[USACO14MAR]Watering the Fields S】" href="https://xiaokongfufufu.github.io/post/ti-jie-p2212-usaco14marwatering-the-fields-s/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="题解 P3385 【【模板】负环】" href="https://xiaokongfufufu.github.io/post/ti-jie-p3385-mo-ban-fu-huan/">题解 P3385 【【模板】负环】</a>
-        <a class="nav-mobile-next" title="题解 P3385 【【模板】负环】" href="https://xiaokongfufufu.github.io/post/ti-jie-p3385-mo-ban-fu-huan/">下一篇</a>
+        <a class="nav-pc-next" title="题解 P6770 【[USACO05MAR]Checking an Alibi 不在场的证明】" href="https://xiaokongfufufu.github.io/post/ti-jie-p6770-usaco05marchecking-an-alibi-bu-zai-chang-de-zheng-ming/">题解 P6770 【[USACO05MAR]Checking an Alibi 不在场的证明】</a>
+        <a class="nav-mobile-next" title="题解 P6770 【[USACO05MAR]Checking an Alibi 不在场的证明】" href="https://xiaokongfufufu.github.io/post/ti-jie-p6770-usaco05marchecking-an-alibi-bu-zai-chang-de-zheng-ming/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
