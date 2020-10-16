@@ -10,7 +10,7 @@
 
 ">
 <meta name="theme-color" content="#000">
-<title>题解 CF483B 【Friends and Presents】 | 小恐 の 小窝</title>
+<title>题解 P5543 【[USACO19FEB]The Great Revegetation S】 | 小恐 の 小窝</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/favicon.ico?v=1602827817592">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiaokongfufufu/xiaokongfufufu.github.io@master/media/fonts/font-awesome.css">
@@ -40,8 +40,8 @@
 
 
 
-  <meta name="description" content="题解 CF483B 【Friends and Presents】" />
-  <meta name="keywords" content="数学,数论,二分答案" />
+  <meta name="description" content="题解 P5543 【[USACO19FEB]The Great Revegetation S】" />
+  <meta name="keywords" content="图论" />
 </head>
 
 <body>
@@ -334,8 +334,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/">
-      题解 CF483B 【Friends and Presents】
+    <a class="post-title-link" href="https://xiaokongfufufu.github.io/post/ti-jie-p5543-usaco19febthe-great-revegetation-s/">
+      题解 P5543 【[USACO19FEB]The Great Revegetation S】
     </a>
   </h1>
   <div class="post-meta">
@@ -343,7 +343,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-05-29</span>
+      <span>2020-10-16</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -352,20 +352,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://xiaokongfufufu.github.io/tag/HdDV0czafR/">
-        <span>数学</span>
-      </a>、
-      
-      
-      
-      <a href="https://xiaokongfufufu.github.io/tag/4d4ceKlSNL/">
-        <span>数论</span>
-      </a>、
-      
-      
-      
-      <a href="https://xiaokongfufufu.github.io/tag/ZYEGqpScdd/">
-        <span>二分答案</span>
+      <a href="https://xiaokongfufufu.github.io/tag/yaYXZ6zGt/">
+        <span>图论</span>
       </a>
       
       
@@ -379,25 +367,31 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>517<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>555<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.luogu.com.cn/problem/CF483B">题目传送门1</a></p>
-<p><a href="https://codeforces.com/contest/483/problem/B">题目传送门2</a></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span>的最小值就是最优构造的最大值。因为要求最大值的最小值，所以想到了二分。</p>
-<p>那如何判断一个数是否可作为答案呢？因为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mi mathvariant="normal">≠</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">x\ne y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>且<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>都为素数，所以一个数如果能被这两个数中某一个选上的话，设这个数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">lcm</mi><mo>⁡</mo><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo><mo>∤</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\operatorname{lcm}(x,y)\nmid k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00142em;vertical-align:-0.25142em;"></span><span class="mop"><span class="mord mathrm">l</span><span class="mord mathrm">c</span><span class="mord mathrm">m</span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">∤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo>×</mo><mi>y</mi><mo>)</mo><mo>∤</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">(x\times y)\nmid k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.00142em;vertical-align:-0.25142em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">∤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>。所以能被选上的数的个数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>−</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>V</mi><mrow><mi>x</mi><mo>×</mo><mi>y</mi></mrow></mfrac><mo fence="true">⌋</mo></mrow></mrow><annotation encoding="application/x-tex">V-\left\lfloor\dfrac{V}{x\times y}\right\rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">⌋</span></span></span></span></span></span>。所以<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>−</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>V</mi><mrow><mi>x</mi><mo>×</mo><mi>y</mi></mrow></mfrac><mo fence="true">⌋</mo></mrow><mo>≥</mo><mi>c</mi><mi>n</mi><mi>t</mi><mn>1</mn><mo>+</mo><mi>c</mi><mi>n</mi><mi>t</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">V-\left\lfloor\dfrac{V}{x\times y}\right\rfloor\ge cnt1+cnt2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">⌋</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">2</span></span></span></span>。同理<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>−</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>V</mi><mi>x</mi></mfrac><mo fence="true">⌋</mo></mrow><mo>≥</mo><mi>c</mi><mi>n</mi><mi>t</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">V-\left\lfloor\dfrac{V}{x}\right\rfloor\ge cnt1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">⌋</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>−</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>V</mi><mi>y</mi></mfrac><mo fence="true">⌋</mo></mrow><mo>≥</mo><mi>c</mi><mi>n</mi><mi>t</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">V-\left\lfloor\dfrac{V}{y}\right\rfloor\ge cnt2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">⌋</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">2</span></span></span></span>。<s>显然</s>满足这3个条件就符合题意了。</p>
-<p>然后要求出二分的范围。最小不用分析得很细，取1即可，答案不可能比1小。然后是最大值，当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>&gt;</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">V&gt;2\times 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>−</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>V</mi><mi>x</mi></mfrac><mo fence="true">⌋</mo></mrow><mo>≥</mo><mi>V</mi><mo>−</mo><mrow><mo fence="true">⌊</mo><mfrac><mi>V</mi><mn>2</mn></mfrac><mo fence="true">⌋</mo></mrow><mo>&gt;</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mo>&gt;</mo><mi>c</mi><mi>n</mi><mi>t</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">V-\left\lfloor\dfrac{V}{x}\right\rfloor\ge V-\left\lfloor\dfrac{V}{2}\right\rfloor&gt; 10^9&gt;cnt1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">⌋</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.40003em;vertical-align:-0.95003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">⌊</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">⌋</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.853208em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord">1</span></span></span></span>，所以比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2\times 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>大的数都不行，最大值设成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2\times 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>就行了，复杂度<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mn>2</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log 2\times 10^9)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，能过。</p>
+              <p><a href="https://www.luogu.com.cn/problem/P5543">题目传送门</a></p>
+<p>我们可以将每两个有关系的牧场建一条边连起来，然后用边权表示是否相同，这样我们就有了若干个连通块。</p>
+<p>如果某个连通块内部矛盾，则没有方案满足要求，答案为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<p>如果每个连通块都不矛盾，则每个连通块只要确定一个牧场，则连通块内所有牧场都确定了。所以每个连通块有两种情况。所以总共有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>c</mi><mi>n</mi><mi>t</mi></mrow></msup></mrow><annotation encoding="application/x-tex">2^{cnt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7935559999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7935559999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">t</span></span></span></span></span></span></span></span></span></span></span></span> 种情况（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">cnt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span></span></span></span> 表示连通块的个数），二进制表示为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 后面 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">cnt</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span></span></span></span> 个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
+<p>所以现在只需求出连通块个数与判断是否有矛盾。</p>
+<p>求出连通块个数就是枚举所有的点，如果没被标记过则把它能连着的点遍历一遍，全部标记上。然后答案加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
+<p>判断是否有矛盾就染色，对于每个连通块染完以后检查一遍，不符合要求就是有矛盾。复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
 <p>上代码：</p>
-<pre><code class="language-cpp">#include&lt;stdio.h&gt;
+<pre><code class="language-cpp">//Code by a weak man who named xiaokong, and he hopes the code can get more points.
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
 using namespace std;
+typedef long long LL;
+typedef unsigned long long ULL;
 const int NR=1e5+5;
 const int MR=1e5+5;
 const int INF=0x3f3f3f3f;
-typedef long long LL;
-int read()
+const int MOD=1e9+7;
+inline int read()
 {
 	int x=0;
 	int bei=1;
@@ -413,37 +407,69 @@ int read()
 		x=x*10+ch-'0';
 		ch=getchar();
 	}
-	return x*=bei;
+	return x*bei;
 }
-int cnt1,cnt2,x,y;
-inline bool check(int k)
+char s[10];
+struct Edge
 {
-	if(k-k/(x*y)&lt;cnt1+cnt2)
-		return 0;
-	if(k-k/x&lt;cnt1)
-		return 0;
-	if(k-k/y&lt;cnt2)
-		return 0;
-	return 1;
+	int v,nxt,w;
+}g[MR&lt;&lt;1];
+int fte[NR],gsz;
+void adde(int u,int v,int w)
+{
+	g[++gsz]=(Edge){v,fte[u],w};
+	fte[u]=gsz;
+}
+int se[NR];
+bool dfs(int x,int co)
+{
+	if(se[x]!=-1)
+	{
+		return co==se[x];
+	}
+	se[x]=co;
+	bool flag=1;
+	for(int i=fte[x];i;i=g[i].nxt)
+	{
+		int y=g[i].v;
+		if(g[i].w)
+			flag&amp;=dfs(y,1-co);
+		else
+			flag&amp;=dfs(y,co);
+	}
+	return flag;
 }
 int main()
 {
-	cnt1=read(),cnt2=read(),x=read(),y=read();
-	int l=1,r=2e9;
-	int ans;
-	int cnt=0;
-	while(l&lt;=r)
+	int n=read(),m=read();
+	for(int i=1;i&lt;=m;++i)
 	{
-		int mid=l+(r-l&gt;&gt;1);
-		if(check(mid))
-			ans=mid,r=mid-1;
-		else
-			l=mid+1;
+		scanf(&quot;%s&quot;,s+1);
+		int u=read(),v=read();
+		int w=1;
+		if(s[1]=='S')
+			w=0;
+		adde(u,v,w);
+		adde(v,u,w);
 	}
-	printf(&quot;%d&quot;,ans);
+	memset(se,-1,sizeof(se));
+	int cnt=0;
+	for(int i=1;i&lt;=n;++i)
+	{
+		if(se[i]!=-1)
+			continue;
+		if(!dfs(i,0))
+		{
+			puts(&quot;0&quot;);
+			return 0;
+		}
+		++cnt;
+	}
+	putchar('1');
+	while(cnt--)
+		putchar('0');
 	return 0;
 }
-
 
 </code></pre>
 
@@ -458,7 +484,7 @@ int main()
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/" title="题解 CF483B 【Friends and Presents】">https://xiaokongfufufu.github.io/post/ti-jie-cf483b-friends-and-presents/</a>
+      <a href="https://xiaokongfufufu.github.io/post/ti-jie-p5543-usaco19febthe-great-revegetation-s/" title="题解 P5543 【[USACO19FEB]The Great Revegetation S】">https://xiaokongfufufu.github.io/post/ti-jie-p5543-usaco19febthe-great-revegetation-s/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -467,25 +493,17 @@ int main()
   </ul>
   <div class="tags">
     
-      <a href="https://xiaokongfufufu.github.io/tag/HdDV0czafR/"># 数学</a>
-    
-      <a href="https://xiaokongfufufu.github.io/tag/4d4ceKlSNL/"># 数论</a>
-    
-      <a href="https://xiaokongfufufu.github.io/tag/ZYEGqpScdd/"># 二分答案</a>
+      <a href="https://xiaokongfufufu.github.io/tag/yaYXZ6zGt/"># 图论</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="题解 P6264 【[COCI2014/2015#3]DOM】" href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/">题解 P6264 【[COCI2014/2015#3]DOM】</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="题解 P6264 【[COCI2014/2015#3]DOM】" href="https://xiaokongfufufu.github.io/post/ti-jie-p6264-coci201420153dom/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="题解 洛谷P5656 【【模板】二元一次不定方程(exgcd)】" href="https://xiaokongfufufu.github.io/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/">题解 洛谷P5656 【【模板】二元一次不定方程(exgcd)】</a>
-        <a class="nav-mobile-next" title="题解 洛谷P5656 【【模板】二元一次不定方程(exgcd)】" href="https://xiaokongfufufu.github.io/post/ti-jie-luo-gu-p5656-mo-ban-er-yuan-yi-ci-bu-ding-fang-cheng-exgcd/">下一篇</a>
+        <a class="nav-pc-next" title="CSP 2020游记" href="https://xiaokongfufufu.github.io/post/csp-2020-you-ji/">CSP 2020游记</a>
+        <a class="nav-mobile-next" title="CSP 2020游记" href="https://xiaokongfufufu.github.io/post/csp-2020-you-ji/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
