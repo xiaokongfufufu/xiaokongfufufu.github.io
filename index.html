@@ -78,7 +78,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/10/test/">关于</a>
+      <a class="article-title" href="/2022/04/10/test/">exgcd</a>
     </h1>
   
 
@@ -86,13 +86,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(!(IOI Au)) study;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="operatorname-exgcd-的用法"><a href="#operatorname-exgcd-的用法" class="headerlink" title="$\operatorname{exgcd}$的用法"></a>$\operatorname{exgcd}$的用法</h1><p>$\operatorname{exgcd}$就是求不等式$a\times x+b\times y=\gcd(a,b)$的其中一组整数解$x$,$y$的方法。</p>
+<p>代码长这样：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">exgcd</span>(b,a%b,x,y);</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">  	t=x;</span><br><span class="line">	x=y;</span><br><span class="line">  	y=t-a/b*y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>和$\gcd$的区别是多了参数$x$和$y$。</p>
+<p>当$b=0$时$a$就是这两个数的最大公约数，所以$x=1,y=0$时就满足等式。</p>
+<p>当$b\ne0$时就先算出当$a=b,b=a\bmod b$时等式成立的$x$和$y$，显然新的$a$和$b$的最大公约数和原来是相同的。</p>
+<p>即$b\times x+(a \bmod b)\times y=\gcd(a,b)$</p>
+<p>$\therefore b\times x+(a- \left\lfloor\dfrac{a}{b}\right\rfloor  \times b)\times y=\gcd(a,b)$</p>
+<p>$\therefore a\times y+b\times(x+\left\lfloor\dfrac{a}{b}\right\rfloor\times y)=\gcd(a,b)$</p>
+<p>让$x=y$，$y=x+\left\lfloor\dfrac{a}{b}\right\rfloor\times y$即可。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/test/" data-id="cl1tcotky00019on91azbhgz9" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/test/" data-id="cl1td6wwt0000a8n9bzwh5zcd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,22 +132,18 @@
       
         <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl1tcotks00009on9elred5l8" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl1td6wx80001a8n99tvrfscc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +184,7 @@
       <ul>
         
           <li>
-            <a href="/2022/04/10/test/">关于</a>
+            <a href="/2022/04/10/test/">exgcd</a>
           </li>
         
           <li>
@@ -234,5 +236,22 @@
 
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 </body>
 </html>
