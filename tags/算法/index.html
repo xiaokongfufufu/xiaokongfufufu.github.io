@@ -5,20 +5,14 @@
   
 
   
-  <title>exgcd | Hexo</title>
+  <title>Tag: 算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="$\operatorname{exgcd}$ 就是求不等式 $a\times x+b\times y&#x3D;\gcd(a,b)$ 的其中一组整数解 $x$,$y$ 的方法。 代码长这样：123456void exgcd(int a,int b,int &amp;x,int &amp;y)&amp;#123;	if(b&#x3D;&#x3D;0) &amp;#123;x&#x3D;1,y&#x3D;0;return;&amp;#125;	exgcd(b,a%b,y,x">
-<meta property="og:type" content="article">
-<meta property="og:title" content="exgcd">
-<meta property="og:url" content="http://example.com/2022/04/10/exgcd/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/tags/%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="$\operatorname{exgcd}$ 就是求不等式 $a\times x+b\times y&#x3D;\gcd(a,b)$ 的其中一组整数解 $x$,$y$ 的方法。 代码长这样：123456void exgcd(int a,int b,int &amp;x,int &amp;y)&amp;#123;	if(b&#x3D;&#x3D;0) &amp;#123;x&#x3D;1,y&#x3D;0;return;&amp;#125;	exgcd(b,a%b,y,x">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-10T10:23:01.000Z">
-<meta property="article:modified_time" content="2022-04-11T12:37:32.900Z">
 <meta property="article:author" content="Xiao Kong">
-<meta property="article:tag" content="数学">
-<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -68,71 +62,40 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-exgcd" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/04/10/exgcd/" class="article-date">
-  <time datetime="2022-04-10T10:23:01.000Z" itemprop="datePublished">2022-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      exgcd
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/04/10/exgcd/" class="archive-article-date">
+  <time datetime="2022-04-10T10:23:01.000Z" itemprop="datePublished">Apr 10</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/04/10/exgcd/">exgcd</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>$\operatorname{exgcd}$ 就是求不等式 $a\times x+b\times y=\gcd(a,b)$ 的其中一组整数解 $x$,$y$ 的方法。</p>
-<p>代码长这样：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>) &#123;x=<span class="number">1</span>,y=<span class="number">0</span>;<span class="keyword">return</span>;&#125;</span><br><span class="line">	<span class="built_in">exgcd</span>(b,a%b,y,x);</span><br><span class="line">  	y-=a/b*x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>和 $\gcd$ 的区别是多了参数 $x$ 和 $y$。</p>
-<p>当 $b=0$ 时 $a$ 就是这两个数的最大公约数，所以 $x=1,y=0$ 时就满足等式。</p>
-<p>当 $b\ne0$ 时就先算出当 $a=b,b=a\bmod b$ 时等式成立的 $x$ 和 $y$，显然新的 $a$ 和 $b$ 的最大公约数和原来是相同的。</p>
-<p>即 $b\times x+(a \bmod b)\times y=\gcd(a,b)$</p>
-<p>$b\times x+(a- \left\lfloor\dfrac{a}{b}\right\rfloor  \times b)\times y=\gcd(a,b)$</p>
-<p>$a\times y+b\times(x+\left\lfloor\dfrac{a}{b}\right\rfloor\times y)=\gcd(a,b)$</p>
-<p>让 $x=y$，$y=x+\left\lfloor\dfrac{a}{b}\right\rfloor\times y$ 即可。</p>
-<p>可以证明得到的 $x,y$ 满足 $|x|\le b,|y|\le a$。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl1uqylli0000fsn99g6bhjtd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          OI中常用技巧
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/04/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
 
 </section>
         
