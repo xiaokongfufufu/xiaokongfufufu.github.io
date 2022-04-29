@@ -94,11 +94,16 @@
 <h3 id="飞行员配对方案问题"><a href="#飞行员配对方案问题" class="headerlink" title="飞行员配对方案问题"></a>飞行员配对方案问题</h3><p><del>你考虑直接做</del></p>
 <p>板子。</p>
 <h3 id="软件补丁问题"><a href="#软件补丁问题" class="headerlink" title="软件补丁问题"></a>软件补丁问题</h3><p>发现错误数只有 $20$，自然的想到状压。发现就是让你跑最短路，边数最多有 $2^{20}\times 100$ 条，但是由于非常不满所以直接跑 $\text{dij}$ 即可。发现边数非常多，所以不用建出来，每到一个点去枚举 $m$ 个补丁即可。</p>
+<h3 id="太空飞行计划问题"><a href="#太空飞行计划问题" class="headerlink" title="太空飞行计划问题"></a>太空飞行计划问题</h3><p>最大权闭合子图：给定一个有向图，点有点权，选择一个子图，满足子图上如果选择了一个点就必须选择它后继的所有点，最大化点权和。</p>
+<p>建图方法：源点向所有正权点连一条容量为权值的边。保留原图中的边，容量为正无穷。所有负权点向汇点连一条容量为权值的绝对值的边。</p>
+<p>答案为所有正权点之和减去最小割。其中如果割掉了源点与正权点的边，则代表不选，如果割掉了负权点与汇点的边，则代表选。</p>
+<p>回到本题，左侧是一排实验的点，右侧是一排仪器的点，将实验所要用的仪器与实验连接，按上述方法建图即可。</p>
+<h3 id="试题库问题"><a href="#试题库问题" class="headerlink" title="试题库问题"></a>试题库问题</h3><p>建一排试题的点，建一排类型的点。将试题的类型与试题连接，容量为 $1$。源点向试题连容量为 $1$ 的点，类型向汇点连容量为需要的题数的边。这样跑最大流，看类型与试题之间的边，如果流了就代表选择。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl2jrwwj40005h8n918a286i2" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl2juox7l0005jkn971hf7ldv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -151,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/CodeForces%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl2jrwwis0000h8n93p5g022d" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/CodeForces%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl2juox780000jkn9csv40y1d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -206,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl2jrwwix0001h8n96be8g4vd" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl2juox7e0001jkn9fnue64su" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
@@ -253,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl2jrwwj10003h8n9hva61udf" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl2juox7i0003jkn9e09v3hkb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -300,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl2jrwwj20004h8n91lqva4re" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl2juox7k0004jkn9e20zcubn" class="article-share-link">Share</a>
       
       
     </footer>
