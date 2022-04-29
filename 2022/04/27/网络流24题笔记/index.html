@@ -15,7 +15,7 @@
 <meta property="og:description" content="餐厅计划问题考虑怎样建图，可以发现如果每天只有一个点是无法处理这么复杂的问题的，我们考虑拆点。 首先每天要接受 $r$ 个毛巾。然后要强制流满，所以每天的一个点需要像汇点流 $r$ ，最后要将一部分毛巾送到若干天之后。 那我们让第一个点负责接受 $r$ 个毛巾，然后直接流向汇点。让第二个点一开始就从源点处接受 $r$ 个毛巾，然后流向若干天后的第一个点。我们发现洗好的毛巾不一定马上用，所以再将相邻">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-27T13:58:17.000Z">
-<meta property="article:modified_time" content="2022-04-29T01:12:40.131Z">
+<meta property="article:modified_time" content="2022-04-29T01:45:44.952Z">
 <meta property="article:author" content="Xiao Kong">
 <meta property="article:tag" content="记录">
 <meta property="article:tag" content="网络流">
@@ -97,11 +97,12 @@
 <h3 id="星际转移问题"><a href="#星际转移问题" class="headerlink" title="星际转移问题"></a>星际转移问题</h3><p>从小到大枚举答案，每次新建 $n$ 个结点，代表第 $t$ 秒的站点。这样建出分层图，每次跑一遍最大流看看能不能全部运完就行，如果到很大的一个上界还没有运完说明无解。但如果每次清空重跑会非常慢，这里可以直接在残量网络上跑最大流。</p>
 <h3 id="飞行员配对方案问题"><a href="#飞行员配对方案问题" class="headerlink" title="飞行员配对方案问题"></a>飞行员配对方案问题</h3><p><del>你考虑直接做</del></p>
 <p>板子。</p>
+<h3 id="软件补丁问题"><a href="#软件补丁问题" class="headerlink" title="软件补丁问题"></a>软件补丁问题</h3><p>发现错误数只有 $20$，自然的想到状压。发现就是让你跑最短路，边数最多有 $2^{20}\times 100$ 条，但是由于非常不满所以直接跑 $\text{dij}$ 即可。发现边数非常多，所以不用建出来，每到一个点去枚举 $m$ 个补丁即可。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl2jqqd50000c68n99q2t1sxd" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl2jrwwj40005h8n918a286i2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
