@@ -15,7 +15,7 @@
 <meta property="og:description" content="餐厅计划问题考虑怎样建图，可以发现如果每天只有一个点是无法处理这么复杂的问题的，我们考虑拆点。 首先每天要接受 $r$ 个毛巾。然后要强制流满，所以每天的一个点需要像汇点流 $r$ ，最后要将一部分毛巾送到若干天之后。 那我们让第一个点负责接受 $r$ 个毛巾，然后直接流向汇点。让第二个点一开始就从源点处接受 $r$ 个毛巾，然后流向若干天后的第一个点。我们发现洗好的毛巾不一定马上用，所以再将相邻">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-27T13:58:17.000Z">
-<meta property="article:modified_time" content="2022-04-29T03:03:32.346Z">
+<meta property="article:modified_time" content="2022-04-29T03:05:04.324Z">
 <meta property="article:author" content="Xiao Kong">
 <meta property="article:tag" content="记录">
 <meta property="article:tag" content="网络流">
@@ -102,12 +102,12 @@
 <p>建图方法：源点向所有正权点连一条容量为权值的边。保留原图中的边，容量为正无穷。所有负权点向汇点连一条容量为权值的绝对值的边。</p>
 <p>答案为所有正权点之和减去最小割。其中如果割掉了源点与正权点的边，则代表不选，如果割掉了负权点与汇点的边，则代表选。</p>
 <p>回到本题，左侧是一排实验的点，右侧是一排仪器的点，将实验所要用的仪器与实验连接，按上述方法建图即可。</p>
-<h3 id="试题库问题"><a href="#试题库问题" class="headerlink" title="试题库问题"></a>试题库问题</h3><p>建一排试题的点，建一排类型的点。将试题的类型与试题连接，容量为 $1$。源点向试题连容量为 $1$ 的点，类型向汇点连容量为需要的题数的边。这样跑最大流，看类型与试题之间的边，如果流了就代表选择。</p>
+<h3 id="试题库问题"><a href="#试题库问题" class="headerlink" title="试题库问题"></a>试题库问题</h3><p>建一排试题的点，建一排类型的点。将试题的类型与试题连接，容量为 $1$。源点向试题连容量为 $1$ 的点，类型向汇点连容量为需要的题数的边。这样跑最大流，看类型与试题之间的边，如果流了就代表选择。如果没流满证明无解。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl2juox7l0005jkn971hf7ldv" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl2juqxev00054kn91c5r8yqv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
