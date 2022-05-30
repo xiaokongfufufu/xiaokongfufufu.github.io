@@ -15,7 +15,7 @@
 <meta property="og:description" content="CF1665E我们有结论：当值域为 $[0,2^k-1]$ 时，每个区间只需要取出最小的 $k+1$ 个数即可得出答案。 考虑归纳证明： 当 $k&#x3D;1$ 时显然成立。 当 $k$ 时成立，$k+1$ 时如果最小的两个最高位均不为 1，则答案就在值域为 $[0,2^k-1]$ 的数中，成立。 否则，最高位不为 $1$ 的数最多只有一个，此时答案最高位必为 $1$ 。所以由归纳，只需要去掉最高位后最小">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-11T14:47:01.000Z">
-<meta property="article:modified_time" content="2022-05-30T07:08:30.648Z">
+<meta property="article:modified_time" content="2022-05-30T16:21:51.555Z">
 <meta property="article:author" content="Xiao Kong">
 <meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary">
@@ -102,11 +102,18 @@
 <p>$1,1,1,\cdots 1,-k$</p>
 <p>$-1,0,0,0,\cdots,k+1,-k$</p>
 <p>只需改变这几项即可，单点查询维护一下后缀和即可。</p>
+<h3 id="CF1681D"><a href="#CF1681D" class="headerlink" title="CF1681D"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1681/problem/D">CF1681D</a></h3><p>一眼看上去可以乘出来的数非常多，但其实考虑一下发现乘的数一定是质因子只包含 $2,3,5,7$ 的数。算下来最多能乘出 $64\times40\times30\times25&lt;2\times 10^6$ 种数。这样只需要 $\text{bfs}$ 去重即可跑出来，或者用 $dp$，但太麻烦了。事实上 $\text{dfs}$ 理论上并无法证明正确，但是的确卡不掉。</p>
+<h3 id="CF1686E"><a href="#CF1686E" class="headerlink" title="CF1686E"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1686/problem/E">CF1686E</a></h3><p>括号序列能否正确匹配的一个常见的做法是画出折线。遇到一个左括号就上升 $1$，否则就下降 $1$。正确匹配意味着结尾是 $0$ 以及中间没有变成负数。</p>
+<p>那我们考虑对一个操作对应着将对应的一段折线旋转 180 度再接上两端。那么旋转的两端高度分别是 $a,b$，之间其中一个点高度是 $c$，则这个点旋转后对应的高度为 $a+b-c$ 。容易发现如果将最高点取出将两边分别翻转可以发现没有点可以变成负的。因此答案不超过 $2$。</p>
+<p>下面只需考虑答案是否可以为 $0$ 或 $1$。$0$ 的判断方法显然。$1$ 次操作首先需要所有负的点都被包含在内。然后我们想让每个点尽量高，一定需要两端尽量高。可以发现如果选第一个变成负的点以前最高点以及最后一个负点以后的最高点最优。如果满足要求即可 $1$ 次操作满足要求。</p>
+<h3 id="ARC141C"><a href="#ARC141C" class="headerlink" title="ARC141C"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/arc141/tasks/arc141_c">ARC141C</a></h3><p>用字典序最小举例。因为字典序最小，所以所有是左括号的必定从小到大排列，是右括号的也是如此。而且如果 <code>A)B(C</code>  合法，则 <code>A(B)C</code> 必然合法。所以当两个数一个数比另一个数大却在其前面时，第一个数是左括号，第二个数是右括号。这样我们就确定了一些数，那么一个数没有被确定会是怎样的呢？</p>
+<p>这说明比它小的数都在它前面，因此将左括号看成 $1$，右括号看成 $-1$，则比这个数小的数所对应的和 $\ge 0$，同理比这个数大的数也 $\ge 0$，这样说明这个位置是右括号。但是由于两边必有一个是 $0$，所以必会有一个是不合法的，因此不存在这种情况。</p>
+<p>这样我们每个数都知道对应是什么了，最后我们还要验证一下两个序列是否是最小最大字典序。验证方法非常简单，拿最小字典序举例，如果当前和为 $0$ 则选未选的第一个左括号位置，否则选第一个未选位置。最大字典序同理。看看是否与给出的符合即可。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/CodeForces%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl3sewfz60000m8n9aq678dcf" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/CodeForces%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl3sxxvan0000gsn9gvvbd0x1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
