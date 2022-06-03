@@ -64,6 +64,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-APIO2022题解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2022-06-03T12:54:26.000Z" itemprop="datePublished">2022-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/">APIO2022题解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>考虑一个长度为 $n$ 的数列，如何求出它的上升子序列个数。</p>
+<p>令 $dp_i$ 表示以 $a_i$ 结尾的上升子序列个数。特殊的，$dp_0=1$ 表示空子序列，我们令 $a_0=0$。因此 $dp_i=\sum\limits_{0\le j&lt;i,a_j&lt;a_i} dp_j$ 。总的个数就是 $\sum\limits^n_{j=0} dp_j$。</p>
+<p>于是我们不难想到从小到大依次向这个数列插入数，因为插入的数一定比原来的数大，所以原来的 $dp$ 值不会改变。如果我们将一个数插入第 $i$ 个数后面，那么这个数的 $dp$ 就是 $\sum\limits^i_{j=0} dp_j$ 。</p>
+<p>于是我们就得到了一个非常贪心的做法，也就是每次贪心的放到最后一个位置使得放之后总和不超过 $k$。</p>
+<p>例如 $k=45$，那么我们看一下我们在干什么：</p>
+<p>初始：<code>1 1</code></p>
+<p>若干次操作后：<code>1 1 2 4 8 16</code></p>
+<p><code>1 1 2 4 8 8 16</code></p>
+<p><code>1 1 2 4 4 8 8 16</code></p>
+<p><code>1 1 1 2 4 4 8 8 16</code></p>
+<p>我们发现这个过程很类似于二进制，事实上我们在干两件事情：乘2，加一个2的整数次幂。那其实我们可以发现更好的解释方法：乘2，加1。这两种操作在我们的过程里都是一定可以办到的（在第一个位置插入，在最后插入）。于是对于一个 $k$ 我们把它看成二进制，每次乘2后如果这一位是 1 我们就再 +1。</p>
+<p>那么我们发现这样我们的上界大约是 $2\times 60=120$。而满分需要在 $90$ 以内。这样我们需要其中一种操作次数减半。发现容易减半的是加1操作。这样我们在开头放 3 个 1。这样二进制的相邻两个 1 就可以用一次操作加，这样加1的操作遍减半了。我们更可以发现无论是+1+3*2都不会改变前面有3个1的状态，于是这题就做完了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl3yh5m8i000080n9cnhjd4l1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-网络流24题笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
@@ -105,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl3yh4jff0004icn9bxnccala" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl3yh5m96000c80n95yz7e5z6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -163,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl3yh4jfh0005icn91tpudec8" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl3yh5m8p000180n99wawcn2p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -218,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl3yh4jew0000icn9882t7dj6" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl3yh5m8t000380n90serarm3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
@@ -265,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl3yh4jf90001icn93xr8cb02" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl3yh5m93000980n968dacdvt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -312,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl3yh4jfe0003icn97czx862v" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl3yh5m94000a80n99lxw5i1v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -335,7 +385,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
     </div>
   </div>
 
@@ -345,7 +395,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 10px;">网络流</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 20px;">记录</a>
+      <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 10px;">网络流</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 20px;">记录</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 10px;">题解</a>
     </div>
   </div>
 
@@ -354,7 +404,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li></ul>
     </div>
   </div>
 
@@ -365,6 +415,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/">APIO2022题解</a>
+          </li>
         
           <li>
             <a href="/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/">网络流24题笔记</a>
@@ -380,10 +434,6 @@
         
           <li>
             <a href="/2022/04/10/exgcd/">exgcd</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/10/hello-world/">Hello World</a>
           </li>
         
       </ul>
