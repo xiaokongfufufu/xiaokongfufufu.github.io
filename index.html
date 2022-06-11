@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-联合省选2022题解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" class="article-date">
+  <time datetime="2022-06-11T15:46:06.000Z" itemprop="datePublished">2022-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/">联合省选2022题解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="D2T1-卡牌"><a href="#D2T1-卡牌" class="headerlink" title="D2T1 卡牌"></a>D2T1 卡牌</h3><p>根据套路分大数小数。发现 $43\times 47=2021&gt;2000$，因此 $s_i$ 中不小于 $43$ 的质因数种数不超过一个。而小于 $43$ 的质数有 $13$ 个，可以考虑状压。</p>
+<p>如果只考虑不小于 $43$ 的质数，那么记 $c_p$ 表示包含质因子 $p$ 的 $s_i$ 个数，则个数为 $2^{n-\sum c_p}\times\Pi (2^{c_p}-1)$。即每个质数对应的所有倍数选至少一个，剩下的随便选。</p>
+<p>现在加进来剩下的 $13$ 个质数，我们自然可以设出 $dp$ 状态：$dp_{i,j}$ 表示到不小于 $43$ 的质数 $j$ 选了小于 $43$ 的质数的情况为 $i$（状压）的选法情况。这样需要预处理出包含小于 $43$ 的情况为 $i$ ，包含质数不小于 $43$ 的质数 $j$ 的 $s$ 个数。然后转移复杂度为 $O((\sum c)\times (2^{13})^2)$，用 FWT 可以优化成$O((\sum c)\times (2^{13})\times 13)$。过不去的可能性很大。</p>
+<p>那么正难则反，我们考虑容斥。那么这样状态变成了：$dp_{i,j}$ 表示到不小于 $43$ 的质数 $j$ 不选小于 $43$ 的质数的情况为 $i$（状压）的选法情况。这样我们发现复杂度变成了 $O((\sum c)\times (2^{13}))$。能过。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4a32xgo0008c4n99pzm37yy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-APIO2022题解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" class="article-date">
@@ -102,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl3yhlb7k000040n9541m4otl" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl4a32xge0001c4n99bwa33je" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
@@ -155,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl3yhlb85000840n90nybcatb" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4a32xgl0004c4n9fex05cb3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -213,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl3yhlb81000540n910x9d9ok" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl4a32xg60000c4n9dagdg1do" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -268,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl3yhlb7t000140n97r8y1dwn" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl4a32xgq0009c4n97fro7dwa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
@@ -315,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl3yhlb7x000340n9gqgkdxya" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl4a32xgm0005c4n9254e9dgr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -362,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl3yhlb7z000440n94mwc73zm" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl4a32xgj0003c4n983ki112e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -395,7 +437,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 10px;">网络流</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 20px;">记录</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 10px;">题解</a>
+      <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 10px;">数学</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 10px;">网络流</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 20px;">记录</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 20px;">题解</a>
     </div>
   </div>
 
@@ -417,6 +459,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/">联合省选2022题解</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/">APIO2022题解</a>
           </li>
         
@@ -430,10 +476,6 @@
         
           <li>
             <a href="/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/">OI中常用技巧</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/10/exgcd/">exgcd</a>
           </li>
         
       </ul>
