@@ -94,7 +94,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4fw36cv0009iwn9auwgdfqh" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4r75mqh00093on90wjr30rq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
@@ -144,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl4fw36cd0000iwn99dgmbgdg" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl4r75mpw00003on9ek426uuf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
@@ -197,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4fw36cu0008iwn968cwbfna" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4r75mqf00083on9fm9b1sk1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -257,11 +257,20 @@
 <p>因此我们只要尝试覆盖整个 $s$ 为 0 即可。 </p>
 <h3 id="CF1697F"><a href="#CF1697F" class="headerlink" title="CF1697F"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1697/F">CF1697F</a></h3><p>这个问题容易想到的的做法是建图表示每个位置是否等于 $x$ ，然后跑 2-SAT。但可惜的是发现并不能约束 $k$ 个点只有一个值为 $1$。</p>
 <p>那么我们希望可以表示这个条件，那么就想到建图表示每个位置是否大于等于 $x$ ，这样的话问题就解决了，跑 2-SAT 即可。</p>
+<h3 id="CF1693D"><a href="#CF1693D" class="headerlink" title="CF1693D"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1693/D">CF1693D</a></h3><p>考虑如何直接验证一个数列是否满足要求。那么可以设 $dp_{0/1,i}$ 表示前 $i$ 项中第 $i$ 项在递增/递减数列中，递减/递增数列的最后一项最大/最小是多少。如果为空则为 $+\infty$ / $-\infty$ ，如果无解则为 $-\infty$ / $+\infty$ 。这样每一项就可以根据前一项递推。</p>
+<p>回到本题，我们尝试来枚举左端点来改变 $dp$ 的值。容易发现如果一个数列满足要求，那它的子段也一定满足要求。因此我们从左向右枚举左端点时，所有 $dp$ 值都是单调的。而且由于 $dp$ 值由前一项决定，那么我们改变的一定是一个前缀。只要可能的值有限，那么我们就做完了。</p>
+<p>以 $dp_{0,i}$ 为例，设 $j$ 是最大的满足 $j<i$ 并且 $a_j>a_{j+1}$ 的数，那么 $dp_{0,i}$ 只可能是 $-\infty,a_j,a_{j+1},+\infty$ 。因为 $a_j,a_{j+1}$ 不可能同时属于递增数列，如果 $a_{j+1}$ 属于递减数列，那么后面没有数可以属于递减数列了。如果 $a_{j+1}$ 不属于递减数列，则 $a_j$ 属于递减数列，此时把 $a_{j+1}$ 后面的数全放到递增数列中最优，因此上面的结论成立。</p>
+<p>这样所有值的数量是 $O(n)$ 的，这样我们暴力更改一个前缀的复杂度也是 $O(n)$ 的，因此做完了。</p>
+<h3 id="CF1695E"><a href="#CF1695E" class="headerlink" title="CF1695E"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1695/E">CF1695E</a></h3><p>容易想到去构造 $2\times n$ 的矩阵。这样我们容易想到一个初步的构造，即把矩阵看成一个圈。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LRLRLR</span><br><span class="line">LRLRLR</span><br><span class="line"></span><br><span class="line">ULRLRU</span><br><span class="line">DLRLRD</span><br></pre></td></tr></table></figure>
+<p>这样我们就可以按照如上方式放牌了。所以我们希望构造出这样一个环，使得每一块都在其中一种情况中出现一次。</p>
+<p>那么我们将一块牌的两个结点连边，这样去 dfs 一遍，走的时候加一条边，回溯的时候再加一条边。容易发现这样每条边都满足要求。</p>
+<p>但是有一点细节，首先如果有若干个联通块，那么就把它们直接拼起来。其次如果有一个联通块只有 1 条边，此时无解。其余情况都可以正常构造。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl4fw36cl0001iwn9hlvbgzi5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl4r75mq400013on9fp0p4uhh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -316,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl4fw36cr0004iwn97ktj9gdk" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl4r75mq900033on9bqjy9ta0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
@@ -363,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl4fw36cs0005iwn959xx8fl8" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl4r75mqa00043on9543jgf85" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -410,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl4fw36cp0003iwn997zga7lx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl4r75mqd00053on924hucsfx" class="article-share-link">Share</a>
       
       
     </footer>
