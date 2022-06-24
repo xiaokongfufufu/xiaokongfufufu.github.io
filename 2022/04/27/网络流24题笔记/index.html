@@ -7,15 +7,15 @@
   
   <title>网络流24题笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="餐厅计划问题考虑怎样建图，可以发现如果每天只有一个点是无法处理这么复杂的问题的，我们考虑拆点。 首先每天要接受 $r$ 个毛巾。然后要强制流满，所以每天的一个点需要像汇点流 $r$ ，最后要将一部分毛巾送到若干天之后。 那我们让第一个点负责接受 $r$ 个毛巾，然后直接流向汇点。让第二个点一开始就从源点处接受 $r$ 个毛巾，然后流向若干天后的第一个点。我们发现洗好的毛巾不一定马上用，所以再将相邻">
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络流24题笔记">
 <meta property="og:url" content="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="餐厅计划问题考虑怎样建图，可以发现如果每天只有一个点是无法处理这么复杂的问题的，我们考虑拆点。 首先每天要接受 $r$ 个毛巾。然后要强制流满，所以每天的一个点需要像汇点流 $r$ ，最后要将一部分毛巾送到若干天之后。 那我们让第一个点负责接受 $r$ 个毛巾，然后直接流向汇点。让第二个点一开始就从源点处接受 $r$ 个毛巾，然后流向若干天后的第一个点。我们发现洗好的毛巾不一定马上用，所以再将相邻">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-27T13:58:17.000Z">
-<meta property="article:modified_time" content="2022-04-29T10:47:32.001Z">
+<meta property="article:modified_time" content="2022-06-24T08:37:04.459Z">
 <meta property="article:author" content="Xiao Kong">
 <meta property="article:tag" content="记录">
 <meta property="article:tag" content="网络流">
@@ -90,26 +90,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="餐厅计划问题"><a href="#餐厅计划问题" class="headerlink" title="餐厅计划问题"></a>餐厅计划问题</h3><p>考虑怎样建图，可以发现如果每天只有一个点是无法处理这么复杂的问题的，我们考虑拆点。</p>
-<p>首先每天要接受 $r$ 个毛巾。然后要强制流满，所以每天的一个点需要像汇点流 $r$ ，最后要将一部分毛巾送到若干天之后。</p>
-<p>那我们让第一个点负责接受 $r$ 个毛巾，然后直接流向汇点。让第二个点一开始就从源点处接受 $r$ 个毛巾，然后流向若干天后的第一个点。我们发现洗好的毛巾不一定马上用，所以再将相邻的第一个点连起来。</p>
-<p>跑最小费用最大流即可。</p>
-<h3 id="星际转移问题"><a href="#星际转移问题" class="headerlink" title="星际转移问题"></a>星际转移问题</h3><p>从小到大枚举答案，每次新建 $n$ 个结点，代表第 $t$ 秒的站点。这样建出分层图，每次跑一遍最大流看看能不能全部运完就行，如果到很大的一个上界还没有运完说明无解。但如果每次清空重跑会非常慢，这里可以直接在残量网络上跑最大流。</p>
-<h3 id="飞行员配对方案问题"><a href="#飞行员配对方案问题" class="headerlink" title="飞行员配对方案问题"></a>飞行员配对方案问题</h3><p><del>你考虑直接做</del></p>
-<p>板子。</p>
-<h3 id="软件补丁问题"><a href="#软件补丁问题" class="headerlink" title="软件补丁问题"></a>软件补丁问题</h3><p>发现错误数只有 $20$，自然的想到状压。发现就是让你跑最短路，边数最多有 $2^{20}\times 100$ 条，但是由于非常不满所以直接跑 $\text{dij}$ 即可。发现边数非常多，所以不用建出来，每到一个点去枚举 $m$ 个补丁即可。</p>
-<h3 id="太空飞行计划问题"><a href="#太空飞行计划问题" class="headerlink" title="太空飞行计划问题"></a>太空飞行计划问题</h3><p>最大权闭合子图：给定一个有向图，点有点权，选择一个子图，满足子图上如果选择了一个点就必须选择它后继的所有点，最大化点权和。</p>
-<p>建图方法：源点向所有正权点连一条容量为权值的边。保留原图中的边，容量为正无穷。所有负权点向汇点连一条容量为权值的绝对值的边。</p>
-<p>答案为所有正权点之和减去最小割。其中如果割掉了源点与正权点的边，则代表不选，如果割掉了负权点与汇点的边，则代表选。</p>
-<p>回到本题，左侧是一排实验的点，右侧是一排仪器的点，将实验所要用的仪器与实验连接，按上述方法建图即可。</p>
-<h3 id="试题库问题"><a href="#试题库问题" class="headerlink" title="试题库问题"></a>试题库问题</h3><p>建一排试题的点，建一排类型的点。将试题的类型与试题连接，容量为 $1$。源点向试题连容量为 $1$ 的点，类型向汇点连容量为需要的题数的边。这样跑最大流，看类型与试题之间的边，如果流了就代表选择。如果没流满证明无解。</p>
-<h3 id="最小路径覆盖问题"><a href="#最小路径覆盖问题" class="headerlink" title="最小路径覆盖问题"></a>最小路径覆盖问题</h3><p>将一开始的覆盖方案看成每个点都是一条路径，一共有 $n$ 条路径。此时去选择一条边，满足起点还没有往后连，终点还没往前连，依次选择这些边就可以构成一个路径覆盖。每选择一条边路径覆盖数减一。于是我们希望选择的边尽量多，还不能共用起点，也不能共用终点。所以我们拆点，源点连向第一排点，第一排连向第二排对应一条边，第二排连向汇点，容量都为 $1$。这样如果一条边流满了则代表选择对应的边，这样可以保证每个点最多只被当作一次起点，一次终点。跑最大流即可。</p>
-<h3 id="魔术球问题"><a href="#魔术球问题" class="headerlink" title="魔术球问题"></a>魔术球问题</h3><p>从 $1$ 开始枚举答案，每加一个点把它与和它之和为平方数的数连一条有向边。那么问题就转化为了最小路径覆盖，按上述方法验证路径条数是否不超过 $n$ 即可。通过打表可以发现答案为 $2\times n+3$ ，可以直接建出这么多点，也可以枚举答案，跑残量网络。 </p>
-
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="b950507a63589364c360c3d996eb7ae485cfc52b8345f0d1f808b4da4893cd74">3e300c75983420439cafd1b4f4490062eae5a8625bef036994dd0c7cf23095c55b7e026f9392f4b95fa327ecf42e01431825dfb141f3d68b3d065af3b708b15e4a7a22c00a86537f436a2d48359e3dd54bd84fbe0ac6676fa52cd7e1e898ff5fc5a7c3789dcb386ee87ce8ff01cea21307187bc89a637417a56f684ce4f0d343857e3c3a29d96707cdf7d13bc8f97ebfb450dd76a9e06f90fa7d0a5a40bf4e550f8e0bdf0c6baf5af5c8eb05365e565552c07c5c74da71cda6ff650a3133b72459a5cd68010edd6084b7227f802de94d8917fa999eac315cfa078907890ecd9c7cd9128124d3fe6f7e931d218f6bc541ad04f3d14c79713b5b1cb1f8901347b682403708e4d237bc33fe2b9a552688c0658c9f87c7b36573654195ec42b18cf340c7023b63d778bc02d9734a8def44a0193b680ddf24d6af651fdf5ecbf2802cbee5aaa4633255e2fe5cd45a2bd274014c21944ca3ec3f59b2995847cb668fa3ebc07be7cfe289841d6933f466770a5a468e09eef461830b83d1678fa9217005197dcbdc87c4ab2a1b0ffcb31faf1cad9bfc76ec603a166a79827bc508b7cc5d2233cdf535c284e3e19eb13d4c9c90838873c29901e2353acd3fa54abe77c9e69d206b3865eae99d72ae8ad71486a7fb7f02a98f7aa0d99629d43264eff92aac546b9eac6b684c955c3cfc2117310fb08313b694afca0881c22d948d4875f270437b49515e9b90b3e4a1ba31a207ccb17f1dfae68fd82101a20bb4417dc7eb53265f3aa8aa723cf7b9c1c7b1d40f0de7e4c5f522002b0e27cbb9e611da763953c8401d062a4324a7466efd2551f3a6ccc13166581d202789c3ad42b37ff7550fdfd0880a6ca37b73e5feba5b9c3ad28eb2dab11dc2925af6ae293ec7f63e0554dc9cb6b7b4ea707a970cf97bfc574cea865b48a9e25306e884127bd2b05f93d26002debf7ea6d65729827b827510da5d4e341d02694828afb2861a843d4659cb3baa369e1b87f5f87b6627da970a7d9595ba6f5baae3dfbd8634e8c686193d6d7465661dc235fa32ffb4bff7c68ad2f5a6524838e6b30c229bfcf689eb8b839a45a210c668ce75de9df5837f148beddb179a27c0027f6898e567d4addd1c92cf28e92d6d8a33b6778d4c8686eac7eed0da1cd5239de95734f1043a24fd9937a1830f9842b51ded9a0a1c81e8fc5f358ebd0b80466943610fc6670bbc682e86e4919ab0c8955acd56ccb2ce142da8e94aba6bcc72a4966bb3cfb3f852d8891e245251b2a5af4d08c2a63487fadba09f8e5fab89d9b0f056343f74dd532508a8679b7e34c8bbff7cff44f11a523ce8acee5ab64a6e2feea5190e49b1bda99c4358cd145199255bf1de5d1853016fc789c6547b5d8e56b62449e5e7df0ac00a85a74a5a8e48cd43ceaaf8f7126e7374be03d1b7a0c780fcfaf55b8e667d56b30d54fc3667fa43c5e2e5122cb1fbb6d56b1c19a6eeb7e87f63d681d9d5e6ea5f15f0b7bd76f908e254ff01a6e0497452ca380918d418e52afa451ce73f76bf77e5fba4f1598d760e1b772efe883bfef06851941c62479bfb620b8f9a2ae55c0e3aafdb66dc2642dbd78a9e147732620b6a7243f8052de26c0f8a673e2806b836842f6162f0d14a0dafb002e143cf30502bfaaa3d0142770721964f4fdabf68ed7ab958588a1c2a9a4df3c1d864f380270ed01c0f20d362c5624a53d46f551a99b82eeb02f78c6af9cc0a8cebd2176621edcb1b9b5078b5a3b09404745698aae00904e0cd68ef8fe0ca7b09dc71ebff6c397fd6398f1e6041b51927142191cd3d44ca4da4a4c80f9e6510f05332f9b57eb7e35c71f02952d2defacf75d799bbc63e37bebf60da3bf0f79e6f8e4c91e7cd73f29a2738eb7ee40e2b0f28e690673b47947418ec415e7546571102bcfdaf68079ab5843b5383cb7220317ce2bda46262b36550e9a45694dfd505063a612595ac0fc8cd9be65355ca9160a7a99752226ca4f66d5874e44e233f78e1bafd4243cdd74c3a4c4f3c207d1e77f770385b7be29c5b95965410312a332b75b0c20d2586087031f4b210758c9223c21ccdaa8ff1ca47a3143dc610119440cd0954369d44c6d42ef14fd8d542a65896b7f09fe2f6ca2bd10c3c04d031a0278d0dd8b07dbba7af97da6a64a5c71ceb477c488b4f44df1bacb2430ce36fea4ce1e62d06e8ea86208bcd1ce22ee2230d0a18a6b7400c0d305f5b501e3b275b9577caa4ba6884e4db691deb5005556fd73cf4c2f68e11c3ad5815ac6ac835ae8525dd9d2698f8a12e172dc4bba2aacef9237356dd8cf9cf2297eb2fee3bfe4544fe16f29cb78b9e411ce2cbcf563a93b2062c26ef8dfd85cc514a281ffd6ac9ed1a353cfeb69851f3501f7b29e26d34e5a04d4ad2a59f851ddafa63182e3239b48d5ba209a73ba978dbc05d73e63e1cee0f5a3f52d8104d2612826a864ba9cc078ece924b6918563aec443496f2d7064d6aef66db5bd7af5a7b4083bab19d344ad5c298f8c4067c4d8d3d7d6cdc775b78642ae6324af6fadd5b3ff9613c602967f6ea199dbc4fd28ebe8a20cb5f37388698378b53bae230e77aac39aa087c9d682fa365ff2f35b42085f08f52b0b2ee5948e1ff0cdfd27624db300dc345b07b595867abd3927613a08e40b984f4f8aa9e81019c8eefe8fdaa3bd613ee63842719ddaeec099d8e69ec61a82aaab2aa355cb89b7bb9c1db43ee2fb5a202ae70b78cdbc8ed0abeb272591430d866ec42e0309a13a9f5d2d8dd07eaac8f9c49496cd840c3107a35428371106df0a93018e90b736246971314b3b5418bb5e44d0ff58fff49726cc5736dd82ef8a4b0b3516855edf65350c25e574ba2e5ef888b37a53bbb281948b8248aedcd0a0b566ddc4a71e1ac6d717d0e190c10eb7a47e81ec0c8746841f9b88379d9347bb72f66681d8a2e7ebfb28d7e25b366fc208ecd27956d3653d6ce00b39cd7da42a7ced1d794f83ac6cf241176e49c27fc948073442eeb82f6a1121ade5ea73f652655d1134cfd8ce9896a0fc1718931ea1c8eea9c316fbcbd5a3fc85b3ff861f53fbb769e264b8f5c9226788e8227df9ce820328c42bfa34aaa1aa5adf1bdbc30ea2fc239c4cd7a40dbb64da69402c306480955a17f16f3a7c13cad3068f589986ece668e93e2231e9a936a627e228996281751e46eba313e7d795cc89bd68ff490e9a981850865bcae89e55cb0e66d0c44086b1526ad60a2560296d9c12cda167bfa30bce95b61977a0fcd741ce454c77e32d837dd3d9a81b3a7ef48d814a938afb492820f5eecb8924207dc5f429d74806753301b878b522bcb8fffe78f49a32b16c0eb2e9701d7e3228b6b86d68d8f9053c6ede7a614c6df8081f0a98d599045249f850170dcab1ed1e9f35ae1d64a3bb79ef7daca768fdf801564e5f935463ff4f21666953a4214e31c846175ba5a7b134112bb23f2ea0f532a2f9518dbb2864e33100e112d1a68d277d2f5c527cf89d1384e4c6389c5a9b7a1d7f3bc989123104b40c875036c504b41e305e159ada4126ee901accec94a855bed4709495ea0c5a5c04063a2b0a4c184551a9df7d76d4adbbcc684b25b59688db7093cd6566ff6a3e99f9231a84da8f9ce60d2412ff5f4d44216df53ba49abe8d95e361d90160ba02c68d839e03d3a5cc24a001cd43caf8314c6c93d2a24dc46b266818a0a11398a370402c51b807e51046ed2588a12bbc35850f8bb172e85dd661c14929b6e0a276f4d1adabaab22ae07fe1e937e4141fc6faef54917cab6c2bd1f19528ed926080e675ae84e38467e5efd3320e328cb7c3c91583c926fc19bfff68a809973a218f7dd6ad0687bf7090c9da1c82e3e2876ce628bb6feae593c836544efb3415754e74efd22469a8c38e1625d56c9f0bdfa109438a1c33031f81be14382f1d461a597906729f307fa645ac28ae1e4214faac8d182cbc0a12659ee645ebc9ac42bfb3a63a3de39197bf61a5b4a7f209b98f60978fd867739216058c353aee5c7c81942f8c3d976954501bd2c6477fb7e3eba4710f714c8f8d3c09a66602e115a3f7d121c5407d34811ca8c2dafa9f04ae722eb2348699200365f18adde943de57f6cdd1c608a30e4cee3df633e2041eb0bafc97a85e75567d303102d07bfa96d066bb5fce6d6cbb7999b813c68832316b792bc7c706cc1f89598d21e0716243d4f2c43f53367315fca044257a473a94aebd12b2ce203fe253ab1de9e33cab963e9cc0e3508dbcda6f12eab7c3af8efd9ee7b8d52bd816ff3f21000713b1a33a51b40152092c076f30ac93fee58eae2c02c5064c1a733e2d2addcd19afc45fdd9a63213f364f9f2b651f7371547ae79f35f161f56c2b83f8b7fc8bdefc8bf9c2f4f42284ff8ad61063c4e5ff98f450310c388ba50233b59edc16d097d6a9b7081e9df57e30a5daead0bbea0475670822fdf422f0ecfda553fe9bcfec3e4458e2bd5bb7a2a579f2676422e14bccc7b438565bfb5b64b0370bd8edc6f0acc94676e6bd2163d497ff026ffaeec1f820da48d1a4564af01e2af18cad63959f81a6973eaa2619b4abd35f8df8b7180fb2ad74a8f18f909ea92f4adfcf982b1d987f9975e773822810caebd905ef7103b80e965cad4affc607cf59c553510a6ddc369b156c6f421439ed08614086a2a10c7ea3cbad19a6551d2cf2cb93c0668d97b208c4eda25bd3ebb148cfeff1787ad49f3e92924d7da27f0593120ecd3919b8197f62fe2d3fe00786b28b8a4aa0cdbffd91ae98af11b7808d777be4d5237e5f8bcde2c3d75984449f48abffd443a7fc37aa77b4fb6e6595263fd718252e9d395bd48e6fb241770abe4c6edb9f6917e9dbdd083d06e43feec0a9ef7860e8c8ba60f55c8fd313c582b77573a41c9331c513dc23b47d6123a7cb1fb40c2401f05feea323e2ad8598860ff06b97dc9dc51f722f2d39a0e63a4bef359afccf3acdcd09aae689836b2b346464bc07413cf1e876ac7474d4e11612331e68f845500214bca957d39d7aee2501c4fa2959767270d14674fc8ebd6aa89695dd24155754ebb48f8363fcc30501ae8a4bb5fcb475bd21000b30e376adbb1b2b655b4de99017679c707e1e2a37e5de1532f36be658861c94e6a2c29fac221b0b19e0de14ee93a18515db30094cff3f5dda66bd36ec7df28ed172ae381fb252f06fbdf7c3680691ba079b590b5619aff7445ed5aeaa9a62a197d23ca69d651693d994bfd479b3f6b8137ceda8ea3db3f5761db1578d63a4ba690a58e1d80b4cf23217cafdc8ad7e9a1d3b1016758aa9ab63022a5ad7dd44fb7d50dfa6cca7250f9f2bf3e0dba4703960589233dd73e88a4f7ad931319acbc58a98feeccb461095cf916049d7d425ebd01b93a62be3cff08199993a8d4f550da74dd5c79b85a651556c6992d9608527f8e32d2a8fde2f58ae9cf69c1d45ac68cc56daebe09965a768718390bacc174fcb45832497e1231b5f06b6006609801bb8c87c453c70aca158c3171a3a1b3d73d9902a8fb889836503fc6c3b8ae72655db3ae5aeced0807f439032ee9ab4f2c556103832bd330bb8f08d9a7abf486fccb5bddccecd1398bd51714d72f60eac6932ac02bc04afb59716d4e9e8e6e03a0b450e7b79c73688c15f32688b2b65b653f9fc6ed77678d7291291a0190c2b4b352437c006897c8ca8bb0e960a06292bfbf1da4f69da2985487016dd1afc46edbd17808e2a1e7ceafa6042314aac1aba2c73d775e145cdbe062221dae40f72f9d79f9dc1e19a545d22e3fcb81c4e6b6c66f346aed3c360f55f51a3a258348163864b04047abb36188861eb249407f93bbd13beea43a8bee0efd46aa0131cf91c2f6213c29e9250932c3645b45f42d5c9e5dc0ebf005c79b50915abcc71449e247be56bc2974a9c9e0edef4c9eb2d40f04ed129bfcc9c4426c3aa35b74d0fc39e9ab0962f16da165932b79453529f9da77666a1556c7e887140df04e3685c3d38d785058343e096111d1d3054ccf9af46b22fcde17736be30828924a0b88d989b84ee5e1c69a5eeb3498f03811af9059d385ba67568fcb7fe676155e74b377f7cc445cad9d1bba3e5a6c242d4cd2ed2f11b1927df4229cd78836ad01fa6b6e28f0e8df363a60dfec0ece31f085e7c9f90f32bece72b61f6270ac5d880a9aa0bf9eaa5293ed8b16a0c617cbc13111fa3c717a698cabbcecfdb79a6a8ed80ef06b72d66d25b5288535aee0c1a9bcb61cb02cd581c17335cfdab39b538e15c98be604261b32909c2cafa2f61377e11ea6bcd35b2d1eddf4d886498f7be72aee7f651b78424e26d642ebeea6338d66699ddd26816373db7b5ff224ae5bdb4cbbfce3e74ff57eb0356cb1301d26aae97f</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4s6qvzo0005cwn9fg61evnv" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4s7b3g80004bkn9alke4tl4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -247,22 +243,5 @@
 
 
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 </body>
 </html>

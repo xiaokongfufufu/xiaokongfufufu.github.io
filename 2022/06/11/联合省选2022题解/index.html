@@ -7,15 +7,15 @@
   
   <title>联合省选2022题解 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="D2T1 卡牌根据套路分大数小数。发现 $43\times 47&#x3D;2021&gt;2000$，因此 $s_i$ 中不小于 $43$ 的质因数种数不超过一个。而小于 $43$ 的质数有 $13$ 个，可以考虑状压。 如果只考虑不小于 $43$ 的质数，那么记 $c_p$ 表示包含质因子 $p$ 的 $s_i$ 个数，则个数为 $2^{n-\sum c_p}\times\Pi (2^{c_p}-1)$">
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="联合省选2022题解">
 <meta property="og:url" content="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="D2T1 卡牌根据套路分大数小数。发现 $43\times 47&#x3D;2021&gt;2000$，因此 $s_i$ 中不小于 $43$ 的质因数种数不超过一个。而小于 $43$ 的质数有 $13$ 个，可以考虑状压。 如果只考虑不小于 $43$ 的质数，那么记 $c_p$ 表示包含质因子 $p$ 的 $s_i$ 个数，则个数为 $2^{n-\sum c_p}\times\Pi (2^{c_p}-1)$">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-11T15:46:06.000Z">
-<meta property="article:modified_time" content="2022-06-11T16:19:52.934Z">
+<meta property="article:modified_time" content="2022-06-24T08:36:45.889Z">
 <meta property="article:author" content="Xiao Kong">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -89,15 +89,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="D2T1-卡牌"><a href="#D2T1-卡牌" class="headerlink" title="D2T1 卡牌"></a>D2T1 卡牌</h3><p>根据套路分大数小数。发现 $43\times 47=2021&gt;2000$，因此 $s_i$ 中不小于 $43$ 的质因数种数不超过一个。而小于 $43$ 的质数有 $13$ 个，可以考虑状压。</p>
-<p>如果只考虑不小于 $43$ 的质数，那么记 $c_p$ 表示包含质因子 $p$ 的 $s_i$ 个数，则个数为 $2^{n-\sum c_p}\times\Pi (2^{c_p}-1)$。即每个质数对应的所有倍数选至少一个，剩下的随便选。</p>
-<p>现在加进来剩下的 $13$ 个质数，我们自然可以设出 $dp$ 状态：$dp_{i,j}$ 表示到不小于 $43$ 的质数 $j$ 选了小于 $43$ 的质数的情况为 $i$（状压）的选法情况。这样需要预处理出包含小于 $43$ 的情况为 $i$ ，包含质数不小于 $43$ 的质数 $j$ 的 $s$ 个数。然后转移复杂度为 $O((\sum c)\times (2^{13})^2)$，用 FWT 可以优化成$O((\sum c)\times (2^{13})\times 13)$。过不去的可能性很大。</p>
-<p>那么正难则反，我们考虑容斥。那么这样状态变成了：$dp_{i,j}$ 表示到不小于 $43$ 的质数 $j$ 不选小于 $43$ 的质数的情况为 $i$（状压）的选法情况。这样我们发现复杂度变成了 $O((\sum c)\times (2^{13}))$。能过。</p>
-
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d39020ae1c2c3538a78eb8cc1135d9d94d72786fa449a0a562d94e5248812b1c">3e300c75983420439cafd1b4f4490062eae5a8625bef036994dd0c7cf23095c5fdc86999885b791fb4286b1f934c795582c91b93c0a2407b366ac4969a5e614a307ff5df0e81f701586e44f70f28ed7222f834f166f6e61a60b575cd47029c5df66f3a5624692083a7c33bd1ebcfdcf0885c190fd8b0f856614ad6ca37e6c82a924210c404b9102d48fb570511e147bdf5f2db09e01d66f69e9c0e724e9df502b2ecf635d87e91c1b0adbbe49a87af393a96388b9cd10879216fd80316eac505c40275f98ada0f84150826385cd2ff97b6fb380384007f0688914fe00753831f3af2fbc70ebc3bfa298116a419298671e01ed57539b44af312ee1badba25fe0c7b9b57a3060742f3a219da5df9177cfc981e25ec7911f6e439a4e11663ec4183cc678c1fc9247d417f01646f99eed8a87a8339514f313fead80eea7ef862b589c46621d9e53d677b2fb9afd320e03a4a0386f579b2bdb99e6ac7a916d5a866d56116729f1bb0ec57b83158c88958a519924f567238eb39789095f603eceef17457469ac25e86f807ea94d6f2324fc6498b37e425012f0cd306ff7c454e269a81364781fc4e078066813b9ee1889f92cf3de608b3c45af3028e0f3b0ee2698ad06a1dc2fd8f41676f9df524647238ae303b51cd9b8ec95c649f0f7e9ae9b22bc408d9c2cf5362ef41cc7a338571da70e7c3736fd319778075fd08539dd2b668074ac1e3f6ad6347dc9e75a771baa0acf1cd69bc4174a7d2bab78c294274948c71bfca90f374500788311740dcb1f2cc7c202f8150fafaf69d8a9732c167440a8204f74a519e3963aece25309acceadefa5ae870da8543e5942ec25cbf2dff97c22f62e7e8a5499199b559281fe0a9da52a0557649fa4ff33ea100e621b0aad0261d7db031e5bd1c5d3ef71edb24b0a1c4d7803a7174820735835871faca2bc01f9e68dde378b500e8c49efed64968b42c2a62fabba68998b2e03e3f50c7f83f198de85ccee2ed9e8de66511aeb0daab6efc419514efef4033f6a6818b7bb05b76728be8e35819918ede7119e57e2470b7350eca6e8ae106d9920817027074ea7350dd3c4e64f8f3de93346599c5bb9a8178dec0747f846876b9de58894f9700dfad13f71dd18c1e7c31e21653b34d0634fc68cead933f15859c7017769a51cdc26b3aab2e728f4d02f99c3e009937a0d9d49772ad255b1c7287cb702b2527fec5bbc912aa43befd86b7aebfdf7e5fb0e30619cf5a58ba182148b4c2907d578514497130e795806e1ba9b9170281069292158325e77d26f3faac441c68566f8878427dcfd95bc8f2e3956015cd4014f899d0a145a6c2f170e6f8a27db64879e9b00671fe77fc263d2924254397e462515146261194cf9189ac54fd1be9afd2fdedcb7d4743622d3ce1d42fcb25d2f3808c7bddb485b7ad0c38c736bf8284c41cbe952f4d6de97567db0242edeac83609370ecb8069031dedebb926b9b61f2d346d7e061e31fbd94bf740b313071b8382267fd5134390b969752c326d41bb5663925514d86c246a4ee34aa51c6cf8ddb8162db9addc651244670edf07b82459d17f22a0b2c5827a0cd5a983e58fe89bff455a119bb9db1cb053010dae2a3bbb443c329ac884684a6cff7c20146313cd43cc6752c12926123ae915a88894f0c14e17dfcb1863b0f3d9747e3e8efcc8649aa2102069bc8109908720384b332c48d41aa85fa661c4a8b074fac5edaf2002a19ce8882bfe7b2f3631532f7a3728674246d48460c12bd9cda63aa9eb8df965a937e5cd9ca0cfaefc43541bf0a06fbe1e472889664c23801cc6c20959f8035d8b65d0e220df374747b37219f4aa23efdbb43de17bf3c683cf5b69f3cfbeb1e7e0c8e3857021bac69136760f7ea50ba82329</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4s6qvzr0009cwn9b6s62r5n" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4s7b3gc0008bkn9f1st67aa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
@@ -226,22 +233,5 @@
 
 
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 </body>
 </html>

@@ -86,15 +86,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="D2T1-卡牌"><a href="#D2T1-卡牌" class="headerlink" title="D2T1 卡牌"></a>D2T1 卡牌</h3><p>根据套路分大数小数。发现 $43\times 47=2021&gt;2000$，因此 $s_i$ 中不小于 $43$ 的质因数种数不超过一个。而小于 $43$ 的质数有 $13$ 个，可以考虑状压。</p>
-<p>如果只考虑不小于 $43$ 的质数，那么记 $c_p$ 表示包含质因子 $p$ 的 $s_i$ 个数，则个数为 $2^{n-\sum c_p}\times\Pi (2^{c_p}-1)$。即每个质数对应的所有倍数选至少一个，剩下的随便选。</p>
-<p>现在加进来剩下的 $13$ 个质数，我们自然可以设出 $dp$ 状态：$dp_{i,j}$ 表示到不小于 $43$ 的质数 $j$ 选了小于 $43$ 的质数的情况为 $i$（状压）的选法情况。这样需要预处理出包含小于 $43$ 的情况为 $i$ ，包含质数不小于 $43$ 的质数 $j$ 的 $s$ 个数。然后转移复杂度为 $O((\sum c)\times (2^{13})^2)$，用 FWT 可以优化成$O((\sum c)\times (2^{13})\times 13)$。过不去的可能性很大。</p>
-<p>那么正难则反，我们考虑容斥。那么这样状态变成了：$dp_{i,j}$ 表示到不小于 $43$ 的质数 $j$ 不选小于 $43$ 的质数的情况为 $i$（状压）的选法情况。这样我们发现复杂度变成了 $O((\sum c)\times (2^{13}))$。能过。</p>
-
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4s6qvzr0009cwn9b6s62r5n" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/11/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892022%E9%A2%98%E8%A7%A3/" data-id="cl4s7b3gc0008bkn9f1st67aa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
@@ -128,23 +129,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>考虑一个长度为 $n$ 的数列，如何求出它的上升子序列个数。</p>
-<p>令 $dp_i$ 表示以 $a_i$ 结尾的上升子序列个数。特殊的，$dp_0=1$ 表示空子序列，我们令 $a_0=0$。因此 $dp_i=\sum\limits_{0\le j&lt;i,a_j&lt;a_i} dp_j$ 。总的个数就是 $\sum\limits^n_{j=0} dp_j$。</p>
-<p>于是我们不难想到从小到大依次向这个数列插入数，因为插入的数一定比原来的数大，所以原来的 $dp$ 值不会改变。如果我们将一个数插入第 $i$ 个数后面，那么这个数的 $dp$ 就是 $\sum\limits^i_{j=0} dp_j$ 。</p>
-<p>于是我们就得到了一个非常贪心的做法，也就是每次贪心的放到最后一个位置使得放之后总和不超过 $k$。</p>
-<p>例如 $k=45$，那么我们看一下我们在干什么：</p>
-<p>初始：<code>1 1</code></p>
-<p>若干次操作后：<code>1 1 2 4 8 16</code></p>
-<p><code>1 1 2 4 8 8 16</code></p>
-<p><code>1 1 2 4 4 8 8 16</code></p>
-<p><code>1 1 1 2 4 4 8 8 16</code></p>
-<p>我们发现这个过程很类似于二进制，事实上我们在干两件事情：乘2，加一个2的整数次幂。那其实我们可以发现更好的解释方法：乘2，加1。这两种操作在我们的过程里都是一定可以办到的（在第一个位置插入，在最后插入）。于是对于一个 $k$ 我们把它看成二进制，每次乘2后如果这一位是 1 我们就再 +1。</p>
-<p>那么我们发现这样我们的上界大约是 $2\times 60=120$。而满分需要在 $90$ 以内。这样我们需要其中一种操作次数减半。发现容易减半的是加1操作。这样我们在开头放 3 个 1。这样二进制的相邻两个 1 就可以用一次操作加，这样加1的操作遍减半了。我们更可以发现无论是+1+3*2都不会改变前面有3个1的状态，于是这题就做完了。</p>
-
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl4s6qvzh0001cwn9d8q6dg8e" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/06/03/APIO2022%E9%A2%98%E8%A7%A3/" data-id="cl4s7b3fx0000bkn9hks4c01r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
@@ -178,26 +172,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="餐厅计划问题"><a href="#餐厅计划问题" class="headerlink" title="餐厅计划问题"></a>餐厅计划问题</h3><p>考虑怎样建图，可以发现如果每天只有一个点是无法处理这么复杂的问题的，我们考虑拆点。</p>
-<p>首先每天要接受 $r$ 个毛巾。然后要强制流满，所以每天的一个点需要像汇点流 $r$ ，最后要将一部分毛巾送到若干天之后。</p>
-<p>那我们让第一个点负责接受 $r$ 个毛巾，然后直接流向汇点。让第二个点一开始就从源点处接受 $r$ 个毛巾，然后流向若干天后的第一个点。我们发现洗好的毛巾不一定马上用，所以再将相邻的第一个点连起来。</p>
-<p>跑最小费用最大流即可。</p>
-<h3 id="星际转移问题"><a href="#星际转移问题" class="headerlink" title="星际转移问题"></a>星际转移问题</h3><p>从小到大枚举答案，每次新建 $n$ 个结点，代表第 $t$ 秒的站点。这样建出分层图，每次跑一遍最大流看看能不能全部运完就行，如果到很大的一个上界还没有运完说明无解。但如果每次清空重跑会非常慢，这里可以直接在残量网络上跑最大流。</p>
-<h3 id="飞行员配对方案问题"><a href="#飞行员配对方案问题" class="headerlink" title="飞行员配对方案问题"></a>飞行员配对方案问题</h3><p><del>你考虑直接做</del></p>
-<p>板子。</p>
-<h3 id="软件补丁问题"><a href="#软件补丁问题" class="headerlink" title="软件补丁问题"></a>软件补丁问题</h3><p>发现错误数只有 $20$，自然的想到状压。发现就是让你跑最短路，边数最多有 $2^{20}\times 100$ 条，但是由于非常不满所以直接跑 $\text{dij}$ 即可。发现边数非常多，所以不用建出来，每到一个点去枚举 $m$ 个补丁即可。</p>
-<h3 id="太空飞行计划问题"><a href="#太空飞行计划问题" class="headerlink" title="太空飞行计划问题"></a>太空飞行计划问题</h3><p>最大权闭合子图：给定一个有向图，点有点权，选择一个子图，满足子图上如果选择了一个点就必须选择它后继的所有点，最大化点权和。</p>
-<p>建图方法：源点向所有正权点连一条容量为权值的边。保留原图中的边，容量为正无穷。所有负权点向汇点连一条容量为权值的绝对值的边。</p>
-<p>答案为所有正权点之和减去最小割。其中如果割掉了源点与正权点的边，则代表不选，如果割掉了负权点与汇点的边，则代表选。</p>
-<p>回到本题，左侧是一排实验的点，右侧是一排仪器的点，将实验所要用的仪器与实验连接，按上述方法建图即可。</p>
-<h3 id="试题库问题"><a href="#试题库问题" class="headerlink" title="试题库问题"></a>试题库问题</h3><p>建一排试题的点，建一排类型的点。将试题的类型与试题连接，容量为 $1$。源点向试题连容量为 $1$ 的点，类型向汇点连容量为需要的题数的边。这样跑最大流，看类型与试题之间的边，如果流了就代表选择。如果没流满证明无解。</p>
-<h3 id="最小路径覆盖问题"><a href="#最小路径覆盖问题" class="headerlink" title="最小路径覆盖问题"></a>最小路径覆盖问题</h3><p>将一开始的覆盖方案看成每个点都是一条路径，一共有 $n$ 条路径。此时去选择一条边，满足起点还没有往后连，终点还没往前连，依次选择这些边就可以构成一个路径覆盖。每选择一条边路径覆盖数减一。于是我们希望选择的边尽量多，还不能共用起点，也不能共用终点。所以我们拆点，源点连向第一排点，第一排连向第二排对应一条边，第二排连向汇点，容量都为 $1$。这样如果一条边流满了则代表选择对应的边，这样可以保证每个点最多只被当作一次起点，一次终点。跑最大流即可。</p>
-<h3 id="魔术球问题"><a href="#魔术球问题" class="headerlink" title="魔术球问题"></a>魔术球问题</h3><p>从 $1$ 开始枚举答案，每加一个点把它与和它之和为平方数的数连一条有向边。那么问题就转化为了最小路径覆盖，按上述方法验证路径条数是否不超过 $n$ 即可。通过打表可以发现答案为 $2\times n+3$ ，可以直接建出这么多点，也可以枚举答案，跑残量网络。 </p>
-
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4s6qvzo0005cwn9fg61evnv" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/27/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cl4s7b3g80004bkn9alke4tl4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -231,46 +215,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="CF1665E"><a href="#CF1665E" class="headerlink" title="CF1665E"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1665/problem/E">CF1665E</a></h3><p>我们有结论：当值域为 $[0,2^k-1]$ 时，每个区间只需要取出最小的 $k+1$ 个数即可得出答案。</p>
-<p>考虑归纳证明：</p>
-<p>当 $k=1$ 时显然成立。</p>
-<p>当 $k$ 时成立，$k+1$ 时如果最小的两个最高位均不为 1，则答案就在值域为 $[0,2^k-1]$ 的数中，成立。</p>
-<p>否则，最高位不为 $1$ 的数最多只有一个，此时答案最高位必为 $1$ 。所以由归纳，只需要去掉最高位后最小的 $k+1$ 个数在选出的数中即可。发现确实满足要求，故结论成立。</p>
-<p>因此只需用线段树取出 $31$ 个数来即可，然后暴力求出答案即可。</p>
-<h3 id="CF1661D"><a href="#CF1661D" class="headerlink" title="CF1661D"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1661/problem/D">CF1661D</a></h3><p>考虑反着贪心，可以发现这样一定是最优的。</p>
-<p>现在就成了区间依次减去 $1,2,\cdots ,k$ ，然后查询一个数的值。</p>
-<p>注意到查询的值是从后往前的，所以我们考虑倒序差分两次。</p>
-<p>$0,-1,-2,\cdots,-(k-1),-k,0$</p>
-<p>$1,1,1,\cdots 1,-k$</p>
-<p>$-1,0,0,0,\cdots,k+1,-k$</p>
-<p>只需改变这几项即可，单点查询维护一下后缀和即可。</p>
-<h3 id="CF1681D"><a href="#CF1681D" class="headerlink" title="CF1681D"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1681/problem/D">CF1681D</a></h3><p>一眼看上去可以乘出来的数非常多，但其实考虑一下发现乘的数一定是质因子只包含 $2,3,5,7$ 的数。算下来最多能乘出 $64\times40\times30\times25&lt;2\times 10^6$ 种数。这样只需要 $\text{bfs}$ 去重即可跑出来，或者用 $dp$，但太麻烦了。事实上 $\text{dfs}$ 理论上并无法证明正确，但是的确卡不掉。</p>
-<h3 id="CF1686E"><a href="#CF1686E" class="headerlink" title="CF1686E"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1686/problem/E">CF1686E</a></h3><p>括号序列能否正确匹配的一个常见的做法是画出折线。遇到一个左括号就上升 $1$，否则就下降 $1$。正确匹配意味着结尾是 $0$ 以及中间没有变成负数。</p>
-<p>那我们考虑对一个操作对应着将对应的一段折线旋转 180 度再接上两端。那么旋转的两端高度分别是 $a,b$，之间其中一个点高度是 $c$，则这个点旋转后对应的高度为 $a+b-c$ 。容易发现如果将最高点取出将两边分别翻转可以发现没有点可以变成负的。因此答案不超过 $2$。</p>
-<p>下面只需考虑答案是否可以为 $0$ 或 $1$。$0$ 的判断方法显然。$1$ 次操作首先需要所有负的点都被包含在内。然后我们想让每个点尽量高，一定需要两端尽量高。可以发现如果选第一个变成负的点以前最高点以及最后一个负点以后的最高点最优。如果满足要求即可 $1$ 次操作满足要求。</p>
-<h3 id="ARC141C"><a href="#ARC141C" class="headerlink" title="ARC141C"></a><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/arc141/tasks/arc141_c">ARC141C</a></h3><p>用字典序最小举例。因为字典序最小，所以所有是左括号的必定从小到大排列，是右括号的也是如此。而且如果 <code>A)B(C</code>  合法，则 <code>A(B)C</code> 必然合法。所以当两个数一个数比另一个数大却在其前面时，第一个数是左括号，第二个数是右括号。这样我们就确定了一些数，那么一个数没有被确定会是怎样的呢？</p>
-<p>这说明比它小的数都在它前面，因此将左括号看成 $1$，右括号看成 $-1$，则比这个数小的数所对应的和 $\ge 0$，同理比这个数大的数也 $\ge 0$，这样说明这个位置是右括号。但是由于两边必有一个是 $0$，所以必会有一个是不合法的，因此不存在这种情况。</p>
-<p>这样我们每个数都知道对应是什么了，最后我们还要验证一下两个序列是否是最小最大字典序。验证方法非常简单，拿最小字典序举例，如果当前和为 $0$ 则选未选的第一个左括号位置，否则选第一个未选位置。最大字典序同理。看看是否与给出的符合即可。</p>
-<h3 id="CF1687C"><a href="#CF1687C" class="headerlink" title="CF1687C"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1687/C">CF1687C</a></h3><p>我们只关心两个数组的差，于是我们令 $c_i=a_i-b_i$。然后由于我们要区间求和，那我们对 $c_i$ 求一个前缀和 $s_i$。</p>
-<p>发现我们要干的事情是：如果 $s_{l-1}=s_r$ ，则对任意的 $l\le i\le r$ ，把 $s_i$ 变为 $s_r$。最后我们希望 $s_i=0$。</p>
-<p>这样我们发现如果两个 $s_r\ne0$ ，那么这个操作毫无意义，甚至可能覆盖掉了有用的 0。</p>
-<p>因此我们只要尝试覆盖整个 $s$ 为 0 即可。 </p>
-<h3 id="CF1697F"><a href="#CF1697F" class="headerlink" title="CF1697F"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1697/F">CF1697F</a></h3><p>这个问题容易想到的的做法是建图表示每个位置是否等于 $x$ ，然后跑 2-SAT。但可惜的是发现并不能约束 $k$ 个点只有一个值为 $1$。</p>
-<p>那么我们希望可以表示这个条件，那么就想到建图表示每个位置是否大于等于 $x$ ，这样的话问题就解决了，跑 2-SAT 即可。</p>
-<h3 id="CF1693D"><a href="#CF1693D" class="headerlink" title="CF1693D"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1693/D">CF1693D</a></h3><p>考虑如何直接验证一个数列是否满足要求。那么可以设 $dp_{0/1,i}$ 表示前 $i$ 项中第 $i$ 项在递增/递减数列中，递减/递增数列的最后一项最大/最小是多少。如果为空则为 $+\infty$ / $-\infty$ ，如果无解则为 $-\infty$ / $+\infty$ 。这样每一项就可以根据前一项递推。</p>
-<p>回到本题，我们尝试来枚举左端点来改变 $dp$ 的值。容易发现如果一个数列满足要求，那它的子段也一定满足要求。因此我们从左向右枚举左端点时，所有 $dp$ 值都是单调的。而且由于 $dp$ 值由前一项决定，那么我们改变的一定是一个前缀。只要可能的值有限，那么我们就做完了。</p>
-<p>以 $dp_{0,i}$ 为例，设 $j$ 是最大的满足 $j&lt;i$ 并且 $a_{j+1}&lt;a_j$ 的数，那么 $dp_{0,i}$ 只可能是 $-\infty,a_j,a_{j+1},+\infty$ 。因为 $a_j,a_{j+1}$ 不可能同时属于递增数列，如果 $a_{j+1}$ 属于递减数列，那么后面没有数可以属于递减数列了。如果 $a_{j+1}$ 不属于递减数列，则 $a_j$ 属于递减数列，此时把 $a_{j+1}$ 后面的数全放到递增数列中最优，因此上面的结论成立。</p>
-<p>这样所有值的数量是 $O(n)$ 的，这样我们暴力更改一个前缀的复杂度也是 $O(n)$ 的，因此做完了。</p>
-<h3 id="CF1695E"><a href="#CF1695E" class="headerlink" title="CF1695E"></a><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1695/E">CF1695E</a></h3><p>容易想到去构造 $2\times n$ 的矩阵。这样我们容易想到一个初步的构造，即把矩阵看成一个圈。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LRLRLR</span><br><span class="line">LRLRLR</span><br><span class="line"></span><br><span class="line">ULRLRU</span><br><span class="line">DLRLRD</span><br></pre></td></tr></table></figure>
-<p>这样我们就可以按照如上方式放牌了。所以我们希望构造出这样一个环，使得每一块都在其中一种情况中出现一次。</p>
-<p>那么我们将一块牌的两个结点连边，这样去 dfs 一遍，走的时候加一条边，回溯的时候再加一条边。容易发现这样每条边都满足要求。</p>
-<p>但是有一点细节，首先如果有若干个联通块，那么就把它们直接拼起来。其次如果有一个联通块只有 1 条边，此时无解。其余情况都可以正常构造。</p>
-
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl4s6qvzc0000cwn92l2pf6iv" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/CF&AT%E8%A1%A5%E9%A2%98%E8%AE%B0%E5%BD%95/" data-id="cl4s7b3g30001bkn94yn42jwo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
@@ -313,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl4s6qvzl0003cwn9disibzf4" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/OI%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" data-id="cl4s7b3g70003bkn940e273v1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li></ul>
@@ -360,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl4s6qvzm0004cwn92hcg9125" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/exgcd/" data-id="cl4s7b3ge0009bkn9dcme7nng" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -407,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl4s6qvzp0008cwn94lrd02lh" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/10/hello-world/" data-id="cl4s7b3ga0005bkn983oceejn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -526,22 +480,5 @@
 
 
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 </body>
 </html>
